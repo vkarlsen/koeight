@@ -12,7 +12,7 @@ I use Kohana 3.3.x in many live projects and migration will be really complex in
 
 I will keep updated tihs repo with any other new issues or features on Kohana.
 
-## Will work as dropin of Kohana
+## Will work as dropin of Kohana?
 
 If you were using 3.3.x version normally yes. Normally? theres 2 breaking changes that may affect you be aware. We have removed MySQL (you need to use MySQLi) and exception.php is now compatible with PHP7.
 
