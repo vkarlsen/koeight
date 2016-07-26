@@ -1,7 +1,10 @@
 <?php
-
 // Sanity check, install should only be checked from index.php
 defined('SYSPATH') or exit('Install tests must be loaded from within index.php!');
+
+//we check first short tags if not we can not even load the installer
+if (! ((bool) ini_get('short_open_tag')) )
+    die('<strong><u>KO7 Installation requirement</u></strong>: Before you proceed with your KO7 installation: Keep in mind KO7 uses the short tag "short cut" syntax.<br><br> Thus the <a href="http://php.net/manual/ini.core.php#ini.short-open-tag" target="_blank">short_open_tag</a> directive must be enabled in your php.ini.<br><br><u>Easy Solution</u>:<ol><li>Open php.ini file and look for line short_open_tag = Off</li><li>Replace it with short_open_tag = On</li><li>Restart then your PHP server</li><li>Refresh this page to resume your KO7 installation</li><li>Enjoy KO7 ;)</li></ol>');
 
 if (version_compare(PHP_VERSION, '5.3', '<'))
 {
@@ -22,7 +25,7 @@ else
 <head>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Kohana Installation</title>
+	<title>Koseven Installation</title>
 
 	<style type="text/css">
 	body { width: 42em; margin: 0 auto; font-family: sans-serif; background: #fff; font-size: 1em; }
@@ -47,7 +50,7 @@ else
 	<h1>Environment Tests</h1>
 
 	<p>
-		The following tests have been run to determine if <a href="http://kohanaframework.org/">Kohana</a> will work in your environment.
+		The following tests have been run to determine if Koseven will work in your environment.
 		If any of the tests have failed, consult the <a href="http://kohanaframework.org/guide/about.install">documentation</a>
 		for more information on how to correct the problem.
 	</p>
@@ -57,10 +60,10 @@ else
 	<table cellspacing="0">
 		<tr>
 			<th>PHP Version</th>
-			<?php if (version_compare(PHP_VERSION, '5.3.3', '>=')): ?>
+			<?php if (version_compare(PHP_VERSION, '7', '>=')): ?>
 				<td class="pass"><?php echo PHP_VERSION ?></td>
 			<?php else: $failed = TRUE ?>
-				<td class="fail">Kohana requires PHP 5.3.3 or newer, this version is <?php echo PHP_VERSION ?>.</td>
+				<td class="fail">Koseven requires PHP 7 or newer, this version is <?php echo PHP_VERSION ?>.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -166,7 +169,7 @@ else
 	</table>
 
 	<?php if ($failed === TRUE): ?>
-		<p id="results" class="fail">✘ Kohana may not work correctly with your environment.</p>
+		<p id="results" class="fail">✘ Koseven may not work correctly with your environment.</p>
 	<?php else: ?>
 		<p id="results" class="pass">✔ Your environment passed all requirements.<br />
 			Remove or rename the <code>install<?php echo EXT ?></code> file now.</p>
@@ -175,7 +178,7 @@ else
 	<h1>Optional Tests</h1>
 
 	<p>
-		The following extensions are not required to run the Kohana core, but if enabled can provide access to additional classes.
+		The following extensions are not required to run the Koseven core, but if enabled can provide access to additional classes.
 	</p>
 
 	<table cellspacing="0">
@@ -184,7 +187,7 @@ else
 			<?php if (extension_loaded('http')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana can use the <a href="http://php.net/http">http</a> extension for the Request_Client_External class.</td>
+				<td class="fail">Koseven can use the <a href="http://php.net/http">http</a> extension for the Request_Client_External class.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -192,7 +195,7 @@ else
 			<?php if (extension_loaded('curl')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana can use the <a href="http://php.net/curl">cURL</a> extension for the Request_Client_External class.</td>
+				<td class="fail">Koseven can use the <a href="http://php.net/curl">cURL</a> extension for the Request_Client_External class.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -200,7 +203,7 @@ else
 			<?php if (extension_loaded('mcrypt')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana requires <a href="http://php.net/mcrypt">mcrypt</a> for the Encrypt class.</td>
+				<td class="fail">Koseven requires <a href="http://php.net/mcrypt">mcrypt</a> for the Encrypt class.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -208,15 +211,15 @@ else
 			<?php if (function_exists('gd_info')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana requires <a href="http://php.net/gd">GD</a> v2 for the Image class.</td>
+				<td class="fail">Koseven requires <a href="http://php.net/gd">GD</a> v2 for the Image class.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
-			<th>MySQL Enabled</th>
-			<?php if (function_exists('mysql_connect')): ?>
+			<th>MySQLi Enabled</th>
+			<?php if (function_exists('mysqli_connect')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana can use the <a href="http://php.net/mysql">MySQL</a> extension to support MySQL databases.</td>
+				<td class="fail">Koseven can use the <a href="http://php.net/mysqli">MySQLi</a> extension to support MySQL databases.</td>
 			<?php endif ?>
 		</tr>
 		<tr>
@@ -224,7 +227,7 @@ else
 			<?php if (class_exists('PDO')): ?>
 				<td class="pass">Pass</td>
 			<?php else: ?>
-				<td class="fail">Kohana can use <a href="http://php.net/pdo">PDO</a> to support additional databases.</td>
+				<td class="fail">Koseven can use <a href="http://php.net/pdo">PDO</a> to support additional databases.</td>
 			<?php endif ?>
 		</tr>
 	</table>
