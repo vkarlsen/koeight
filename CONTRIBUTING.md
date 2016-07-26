@@ -76,7 +76,7 @@ The simplest way to fix this is to remove all the changes that you've made local
 
 You can do this using 
 
-    > git reset --hard koseen
+    > git reset --hard koseven
 
 ## You've fixed something locally which someone else has already fixed but you also have separate commits you'd like to keep
 
