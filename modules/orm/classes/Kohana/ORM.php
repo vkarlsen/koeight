@@ -245,6 +245,12 @@ class Kohana_ORM extends Model implements serializable {
 	protected $_errors_filename = NULL;
 
 	/**
+	 * List of behaviors
+	 * @var array
+	 */
+	protected $_behaviors = array();
+
+	/**
 	 * List of private columns that will not appear in array or object
 	 * @var array
 	 */
@@ -258,6 +264,13 @@ class Kohana_ORM extends Model implements serializable {
 	public function __construct($id = NULL)
 	{
 		$this->_initialize();
+
+		// Invoke all behaviors
+		foreach ($this->_behaviors as $behavior)
+		{
+			if (( ! $behavior->on_construct($this, $id)) OR $this->_loaded)
+				return;
+		}
 
 		if ($id !== NULL)
 		{
@@ -396,6 +409,12 @@ class Kohana_ORM extends Model implements serializable {
 
 		// Clear initial model state
 		$this->clear();
+    
+		// Create the behaviors classes
+		foreach ($this->behaviors() as $behavior => $behavior_config)
+		{
+			$this->_behaviors[] = ORM_Behavior::factory($behavior, $behavior_config);
+		}
 	}
 
 	/**
@@ -1239,6 +1258,16 @@ class Kohana_ORM extends Model implements serializable {
 	}
 
 	/**
+	 * Behavior definitions
+	 *
+	 * @return array
+	 */
+	public function behaviors()
+	{
+		return array();
+	}
+
+	/**
 	 * Rule definitions for validation
 	 *
 	 * @return array
@@ -1383,6 +1412,12 @@ class Kohana_ORM extends Model implements serializable {
 		if ($this->_loaded)
 			throw new Kohana_Exception('Cannot create :model model because it is already loaded.', array(':model' => $this->_object_name));
 
+		// Invoke all behaviors
+		foreach ($this->_behaviors as $behavior)
+		{
+			$behavior->on_create($this);
+		}
+
 		// Require model validation before saving
 		if ( ! $this->_valid OR $validation)
 		{
@@ -1442,6 +1477,12 @@ class Kohana_ORM extends Model implements serializable {
 	{
 		if ( ! $this->_loaded)
 			throw new Kohana_Exception('Cannot update :model model because it is not loaded.', array(':model' => $this->_object_name));
+
+    	// Invoke all behaviors
+		foreach ($this->_behaviors as $behavior)
+		{
+			$behavior->on_update($this);
+		}
 
 		// Run validation if the model isn't valid or we have additional validation rules.
 		if ( ! $this->_valid OR $validation)
