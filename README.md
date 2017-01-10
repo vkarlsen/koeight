@@ -36,7 +36,7 @@ This is a personal choice for me to keep the project as simple and easier to man
 
 ## I Need help!
 
-Feel free to open an issue on github. Please be as specific as possible if you want to get help. You can also [Join the Telegram group] (https://telegram.me/koseven 
+Feel free to [open an issue on github](https://github.com/koseven/koseven/issues/new). Please be as specific as possible if you want to get help. You can also [Join the Telegram group] (https://telegram.me/koseven) 
 
 ## Documentation
 
