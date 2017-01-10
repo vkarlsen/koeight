@@ -856,6 +856,10 @@ class Kohana_ORM extends Model implements serializable {
 	{
 		$value = $this->get($column);
 		
+		if ($value === NULL)
+			return NULL;
+
+		// Call __get for any user processing
 		switch($this->table_column_type($column))
 		{
 			case 'float':  return floatval($this->__get($column));
@@ -863,7 +867,7 @@ class Kohana_ORM extends Model implements serializable {
 			case 'string': return strval($this->__get($column));
 		}
 		
-		return FALSE;
+		return $value;
 	}
 
 	/**
@@ -886,12 +890,12 @@ class Kohana_ORM extends Model implements serializable {
 		}
 		else
 		{
-		foreach ($this->_object as $column => $value)
-		{
-			// Call __get for any user processing
+			foreach ($this->_object as $column => $value)
+			{
+				// Call __get for any user processing
 				if (!in_array($column, $this->_private_columns))
-			$object[$column] = $this->__get($column);
-		}
+					$object[$column] = $this->__get($column);
+			}
 		}
 
 		foreach ($this->_related as $column => $model)
@@ -926,7 +930,9 @@ class Kohana_ORM extends Model implements serializable {
 			foreach ($this->_object as $column => $value)
 			{
 				if (!in_array($column, $this->_private_columns))
+				{
 					$object->{$column} = $this->get_typed($column);
+				}
 			}
 		}
 
@@ -1445,7 +1451,7 @@ class Kohana_ORM extends Model implements serializable {
 			->values(array_values($data))
 			->execute($this->_db);
 
-		if ( ! array_key_exists($this->_primary_key, $data))
+		if ( ! array_key_exists($this->_primary_key, $data) OR ($this->_object[$this->_primary_key] === NULL))
 		{
 			// Load the insert id as the primary key if it was left out
 			$this->_object[$this->_primary_key] = $this->_primary_key_value = $result[0];
@@ -2481,5 +2487,17 @@ class Kohana_ORM extends Model implements serializable {
 		}
 
 		return ( ! $model->loaded());
+	}
+
+
+	/**
+	 * Get the quoted table name from the model name
+	 *
+	 * @param   string   $orm_model  Model name
+	 * @return  string   Quoted table name
+	 */
+	public static function quote_table($orm_model)
+	{
+		return Database::instance()->quote_table(strtolower($orm_model));
 	}
 } // End ORM
