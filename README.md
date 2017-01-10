@@ -1,3 +1,7 @@
+## [Download](https://github.com/koseven/koseven/archive/master.zip)
+
+### [Join the Telegram group] (https://telegram.me/koseven)
+
 # Koseven PHP Framework
 
 Koseven is a PHP framework based on [Kohana](http://kohanaframework.org/) 3.3.X . Fully compatible with Kohana and updated to work with PHP7
@@ -8,7 +12,7 @@ Released under a [BSD license](LICENSE.md), Koseven can be used legally for any 
 
 ## Why a Kohana alternative?
 
-I use Kohana 3.3.x in many live projects and migration will be really complex into any new PHP framework. Keeping the project alive and updated is a priority. Kohana team (which I belong too) aims to release 4.0.0 with many BC changes.
+I use Kohana 3.3.x in many live projects and migration will be really complex into any new PHP framework. Keeping the project alive and updated is a priority. Kohana team (which I belong too) will not release any new version. [Kohana is DEAD] (http://discourse.kohanaframework.org/t/search-for-collaborators/56)
 
 I will keep updated tihs repo with any other new issues or features on Kohana.
 
@@ -18,17 +22,21 @@ If you were using 3.3.x version normally yes. Normally? theres 2 breaking change
 
 We have also added the pagination module.
 
+## What changes have you made?
+
+So far is exactly as last stable version of KO 3.3.6 released on Jul 25, 2016. But compatible with PHP 7 / PHP 7.1. I personally would like only to add fixes, bug fixes, speed improvements and the rest leave it for the modules.
+
 ## Are modules of Kohana compatible?
 
-Yes they are, jsut be sure are compatible with KO 3.3.X. 
+Yes they are, just be sure are compatible with KO 3.3.X. 
 
 ## Why all modules in 1 repo?
 
 This is a personal choice for me to keep the project as simple and easier to manage, modules are not enabled by default, just do not enable those you will not use.
 
-## Need help!
+## I Need help!
 
-We do not have a forum just yet (working on it), you cna in the meantime open a issue on github.
+Feel free to open an issue on github. Please be as specific as possible if you want to get help. You can also [Join the Telegram group] (https://telegram.me/koseven 
 
 ## Documentation
 
