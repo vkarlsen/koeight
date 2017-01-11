@@ -780,6 +780,41 @@ class Kohana_ORM extends Model implements serializable {
 
 			$this->_changed[$column] = $this->_belongs_to[$column]['foreign_key'];
 		}
+		elseif (isset($this->_has_many[$column]))
+		{
+			if (Arr::get($this->_has_many[$column], 'update', FALSE))
+			{
+				$model = $this->_has_many[$column]['model'];
+				$pk = ORM::factory($model)->primary_key();
+			 
+				$current_ids = $this->get($column)->find_all()->as_array(NULL, 'id');
+
+				$new_ids = array_diff($value, $current_ids);
+				if (count($new_ids) > 0)
+				{
+					$objects = ORM::factory($model)->where($pk, 'IN', $new_ids)->find_all();
+					foreach ($objects as $object)
+					{
+						$this->add($column, $object);
+					}
+				}
+
+				$delete_ids = array_diff($current_ids, $value);
+				if (count($delete_ids) > 0)
+				{
+					$objects = ORM::factory($model)->where($pk, 'IN', $delete_ids)->find_all();
+					foreach ($objects as $object)
+					{
+						$this->remove($column, $object);
+					}
+				}
+			}
+			else
+			{
+				throw new Kohana_Exception('The :property: property is a to many relation in the :class: class',
+					array(':property:' => $column, ':class:' => get_class($this)));
+			}
+		}
 		else
 		{
 			throw new Kohana_Exception('The :property: property does not exist in the :class: class',
