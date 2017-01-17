@@ -19,7 +19,7 @@ class Kohana_Minion_Exception extends Kohana_Exception {
 	 * @param   Exception   $e
 	 * @return  boolean
 	 */
-	public static function handler(Exception $e)
+	public static function handler($e)
 	{
 		try
 		{
