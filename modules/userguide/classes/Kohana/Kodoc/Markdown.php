@@ -29,9 +29,9 @@ class Kohana_Kodoc_Markdown extends MarkdownExtra_Parser {
 	protected $_heading_ids = array();
 	
 	/**
-	 * @var  string   the generated table of contents
+	 * @var  array   the generated table of contents
 	 */
-	protected static $_toc = "";
+	protected static $_toc = [];
 	
 	/**
 	 * Slightly less terrible way to make it so the TOC only shows up when we
