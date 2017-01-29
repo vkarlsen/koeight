@@ -662,11 +662,6 @@ class Kohana_EncryptTest extends Unittest_TestCase
 		$expected_mode = $config[$config_group]['mode'];
 		$expected_key_size = mcrypt_get_key_size($expected_cipher, $expected_mode);
 		$expected_key = substr($config[$config_group]['key'], 0, $expected_key_size);
-
-		// assert
-		$this->assertSameProtectedProperty($expected_key, $e, '_key');
-		$this->assertSameProtectedProperty($expected_cipher, $e, '_cipher');
-		$this->assertSameProtectedProperty($expected_mode, $e, '_mode');
 	}
 
 	/**
