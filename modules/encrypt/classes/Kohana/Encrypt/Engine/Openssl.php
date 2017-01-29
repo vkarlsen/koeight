@@ -175,19 +175,19 @@ class Kohana_Encrypt_Engine_Openssl extends Kohana_Encrypt_Engine {
 	 */
 	public function create_iv()
 	{
-    if (function_exists('random_bytes'))
+		if (function_exists('random_bytes'))
 		{
-			return random_bytes($$this->_iv_size);
-    }
+			return random_bytes($this->_iv_size);
+		}
 
-    if ((PHP_VERSION_ID >= 50307) AND (function_exists('mcrypt_create_iv')))
+		if ((PHP_VERSION_ID >= 50307) AND (function_exists('mcrypt_create_iv')))
 		{
 			$key = mcrypt_create_iv($this->_iv_size, MCRYPT_DEV_URANDOM);
 			if (mb_strlen($key, '8bit') === $this->_iv_size)
 			{
 				return $key;
 			}
-    }
+		}
 
 		throw new Kohana_Exception('Could not create initialization vector.');
 	}

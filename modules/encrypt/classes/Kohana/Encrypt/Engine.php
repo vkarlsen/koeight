@@ -61,7 +61,7 @@ abstract class Kohana_Encrypt_Engine {
 			throw new Kohana_Exception('No encryption key is defined in the encryption configuration');
 		}
 	}
-	
+
 	abstract public function encrypt($data, $iv);
 	abstract public function decrypt($data);
 }

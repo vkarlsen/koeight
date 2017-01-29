@@ -15,7 +15,7 @@ class Kohana_Encrypt {
 	/**
 	 * @var  engine  Encryption engine
 	 */
-  public $_engine = NULL;
+	public $_engine = NULL;
 
 	/**
 	 * Returns a singleton instance of Encrypt. An encryption key must be
