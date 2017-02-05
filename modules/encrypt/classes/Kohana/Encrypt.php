@@ -49,18 +49,6 @@ class Kohana_Encrypt {
 					array(':group' => $name));
 			}
 
-			if ( ! isset($config['mode']))
-			{
-				// Add the default mode
-				$config['mode'] = MCRYPT_MODE_NOFB;
-			}
-
-			if ( ! isset($config['cipher']))
-			{
-				// Add the default cipher
-				$config['cipher'] = MCRYPT_RIJNDAEL_128;
-			}
-
 			// Create a new instance
 			Encrypt::$instances[$name] = new Encrypt($config);
 		}
@@ -86,11 +74,7 @@ class Kohana_Encrypt {
 		{
 			if ( ! isset($key_config['type']))
 			{
-				$key_config['type'] = 'mcrypt';
-				/*
-				throw new Kohana_Exception('Encrypt type not defined in :name configuration',
-					array(':name' => $name));
-				*/
+				throw new Kohana_Exception('Encrypt type not defined in configuration');
 			}
 
 			// Set the engine class name

@@ -24,6 +24,18 @@ class Kohana_Encrypt_Engine_Mcrypt extends Kohana_Encrypt_Engine {
 	 */
 	public function __construct($key_config, $mode = NULL, $cipher = NULL)
 	{
+		if ($mode === NULL)
+		{
+			// Add the default mode
+			$mode = MCRYPT_MODE_NOFB;
+		}
+
+		if ($cipher === NULL)
+		{
+			// Add the default cipher
+			$cipher = MCRYPT_RIJNDAEL_128;
+		}
+
 		parent::__construct($key_config, $mode, $cipher);
 
 		// Find the max length of the key, based on cipher and mode

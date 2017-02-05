@@ -42,10 +42,20 @@ abstract class Kohana_Encrypt_Engine {
 			{
 				$this->_mode = $key_config['mode'];
 			}
+			// Mode not specified in config array, use argument
+			else if ($mode !== NULL)
+			{
+				$this->_mode = $mode;
+			}
 			
 			if (isset($key_config['cipher']))
 			{
 				$this->_cipher = $key_config['cipher'];
+			}
+			// Cipher not specified in config array, use argument
+			else if ($cipher !== NULL)
+			{
+				$this->_cipher = $cipher;
 			}
 		}
 		else if (is_string($key_config))
