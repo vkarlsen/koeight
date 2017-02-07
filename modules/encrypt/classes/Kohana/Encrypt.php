@@ -74,7 +74,7 @@ class Kohana_Encrypt {
 		{
 			if ( ! isset($key_config['type']))
 			{
-				throw new Kohana_Exception('Encrypt type not defined in configuration');
+				$key_config['type'] = 'mcrypt';
 			}
 
 			// Set the engine class name
