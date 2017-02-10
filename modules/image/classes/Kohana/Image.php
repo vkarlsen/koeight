@@ -22,6 +22,9 @@ abstract class Kohana_Image {
 	const HORIZONTAL = 0x11;
 	const VERTICAL   = 0x12;
 
+	// PHP image_type_to_mime_type doesn't know WEBP yet
+	consts IMAGETYPE_WEBP = -1;
+
 	/**
 	 * @deprecated - provide an image.default_driver value in your configuration instead
 	 * @var  string  default driver: GD, ImageMagick, etc
@@ -664,6 +667,21 @@ abstract class Kohana_Image {
 		}
 
 		return $this->_do_render($type, $quality);
+	}
+
+	/**
+	 * Returns the image mime type
+	 * Adds support for webp image type, which is not known by php
+	 *
+	 * @param   string    $type     image type: png, jpg, gif, etc
+	 * @return  string
+	 */
+	protected function image_type_to_mime_type($type)
+	{
+		if ($type === self::IMAGETYPE_WEBP)
+			return 'image/webp';
+
+		return image_type_to_mime_type($type);
 	}
 
 	/**
