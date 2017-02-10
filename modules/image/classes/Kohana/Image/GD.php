@@ -102,6 +102,9 @@ class Kohana_Image_GD extends Image {
 			case IMAGETYPE_PNG:
 				$create = 'imagecreatefrompng';
 			break;
+			case self::IMAGETYPE_WEBP:
+				$create = 'imagecreatefromwebp';
+			break;
 		}
 
 		if ( ! isset($create) OR ! function_exists($create))
@@ -554,7 +557,7 @@ class Kohana_Image_GD extends Image {
 		{
 			// Reset the image type and mime type
 			$this->type = $type;
-			$this->mime = image_type_to_mime_type($type);
+			$this->mime = $this->image_type_to_mime_type($type);
 		}
 
 		return TRUE;
@@ -585,7 +588,7 @@ class Kohana_Image_GD extends Image {
 		{
 			// Reset the image type and mime type
 			$this->type = $type;
-			$this->mime = image_type_to_mime_type($type);
+			$this->mime = $this->image_type_to_mime_type($type);
 		}
 
 		return ob_get_clean();
@@ -632,6 +635,13 @@ class Kohana_Image_GD extends Image {
 
 				// Use a compression level of 9 (does not affect quality!)
 				$quality = 9;
+			break;
+			case 'webp':
+				// Save a WEBP file
+				$save = 'imagewebp';
+				$type = self::IMAGETYPE_WEBP;
+
+				$quality = 80;
 			break;
 			default:
 				throw new Kohana_Exception('Installed GD does not support :type images',
