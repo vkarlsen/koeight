@@ -23,7 +23,7 @@ abstract class Kohana_Image {
 	const VERTICAL   = 0x12;
 
 	// PHP image_type_to_mime_type doesn't know WEBP yet
-	consts IMAGETYPE_WEBP = -1;
+	const IMAGETYPE_WEBP = -1;
 
 	/**
 	 * @deprecated - provide an image.default_driver value in your configuration instead
