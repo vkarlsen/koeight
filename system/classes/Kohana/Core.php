@@ -228,7 +228,7 @@ class Kohana_Core {
 		// Enable the Kohana shutdown handler, which catches E_FATAL errors.
 		register_shutdown_function(array('Kohana', 'shutdown_handler'));
 
-		if (ini_get('register_globals'))
+		if ((PHP_VERSION_ID < 50300) AND ini_get('register_globals'))
 		{
 			// Reverse the effects of register_globals
 			Kohana::globals();
@@ -243,7 +243,7 @@ class Kohana_Core {
 		Kohana::$is_windows = (DIRECTORY_SEPARATOR === '\\');
 
 		// Determine if we are running in safe mode
-		Kohana::$safe_mode = (bool) ini_get('safe_mode');
+		Kohana::$safe_mode = (PHP_VERSION_ID >= 50300) OR ((bool) ini_get('safe_mode'));
 
 		if (isset($settings['cache_dir']))
 		{
