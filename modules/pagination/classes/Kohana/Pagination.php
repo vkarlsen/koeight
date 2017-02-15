@@ -1,4 +1,15 @@
 <?php defined('SYSPATH') or die('No direct script access.');
+
+/**
+ * Pagination links generator.
+ *
+ * @package    Koseven/Pagination
+ * @category   Base
+ * @author     Koseven Team
+ * @copyright  (c) 2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
+ */
+
 /**
  * Pagination links generator.
  *
