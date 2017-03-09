@@ -31,7 +31,7 @@ class Kohana_URL {
 	 *
 	 * @param   mixed    $protocol  Protocol string, [Request], or boolean
 	 * @param   boolean  $index     Add index file to URL?
-     * @param   string   $subdomain Subdomain string
+	 * @param   string   $subdomain Subdomain string
 	 * @return  string
 	 * @uses    Kohana::$index_file
 	 * @uses    Request::protocol()
@@ -90,14 +90,14 @@ class Kohana_URL {
 				// Attempt to use HTTP_HOST and fallback to SERVER_NAME
 				$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_NAME'];
 
+				// If subdomain passed, then append to host
+				if( ! is_null($subdomain))
+				{
+					$host = $subdomain.'.'.$host;
+				}
+				
 				// make $host lowercase
 				$host = strtolower($host);
-                
-                // If subdomain passed, then append to host
-                if( ! is_null($subdomain))
-                {
-                    $host = $subdomain.'.'.$host;
-                }
 
 				// check that host does not contain forbidden characters (see RFC 952 and RFC 2181)
 				// use preg_replace() instead of preg_match() to prevent DoS attacks with long host names
@@ -133,7 +133,7 @@ class Kohana_URL {
 	 * @param   string  $uri        Site URI to convert
 	 * @param   mixed   $protocol   Protocol string or [Request] class to use protocol from
 	 * @param   boolean $index		Include the index_page in the URL
-     * @param   string  $subdomain  Subdomain string
+	 * @param   string  $subdomain  Subdomain string
 	 * @return  string
 	 * @uses    URL::base
 	 */
