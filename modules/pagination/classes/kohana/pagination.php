@@ -97,7 +97,11 @@ class Kohana_Pagination {
 		
 		// Assign default route params
 		$this->_route_params = $request->param();
-		
+
+		// Add controller and action to route params for routes with variable controllers and actions
+		$this->_route_params['controller'] = $request->controller();
+		$this->_route_params['action'] = $request->action();
+
 		// Pagination setup
 		$this->setup($config);
 	}
