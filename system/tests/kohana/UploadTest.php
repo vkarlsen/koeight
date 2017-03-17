@@ -120,6 +120,7 @@ class Kohana_UploadTest extends Unittest_TestCase
 	 */
 	public function provider_valid()
 	{
+        $this->markAsRisky();
 		return array(
 			array(
 				TRUE,
