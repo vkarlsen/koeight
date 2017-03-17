@@ -113,7 +113,7 @@ class Kohana_ConfigTest extends Unittest_TestCase
 
 		// To get around this we have to specify a totally random name for the second mock object
 		$reader1 = $this->createMock('Kohana_Config_Reader');
-		$reader2 = $this->createMock('Kohana_Config_Reader');
+		$reader2 = $this->createMock('Kohana_Config_Reader', array(), array(), 'MY_AWESOME_READER');
 
 		$config->attach($reader1);
 		$config->attach($reader2);
