@@ -113,19 +113,21 @@ class Kohana_ConfigTest extends Unittest_TestCase
 
 		// To get around this we have to specify a totally random name for the second mock object
 		$reader1 = $this->createMock('Kohana_Config_Reader');
-		$reader2 = $this->createMock('Kohana_Config_Reader', array(), array(), 'MY_AWESOME_READER');
+		$reader2 = $this->createMock('Kohana_Config_Reader');
 
 		$config->attach($reader1);
 		$config->attach($reader2);
 
-		$this->assertSame($config, $config->detach($reader1));
-
-		$this->assertAttributeNotContains($reader1, '_sources', $config);
+        $this->assertAttributeContains($reader1, '_sources', $config);
 		$this->assertAttributeContains($reader2, '_sources', $config);
 
-		$this->assertSame($config, $config->detach($reader2));
+        $this->assertSame($config, $config->detach($reader2));
+        
+        $this->assertAttributeNotContains($reader2, '_sources', $config);
+        
+        $this->assertSame($config, $config->detach($reader1));
 
-		$this->assertAttributeNotContains($reader2, '_sources', $config);
+		$this->assertAttributeNotContains($reader1, '_sources', $config);
 	}
 
 	/**
