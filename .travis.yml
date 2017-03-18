@@ -18,20 +18,13 @@ before_install:
   - sudo mv phpunit.phar $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
   - sudo chmod +x $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
 
-install:
-
-
-
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
   - sudo chmod -R 755 modules/ application/ system/
 
-
 script: 
   # - set -e # don't stop on failure
   - php $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit/phpunit.phar --bootstrap=modules/unittest/bootstrap.php modules/unittest/tests.php
-
-after_failure:
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
