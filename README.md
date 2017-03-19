@@ -4,9 +4,7 @@
 [![Pending Pull-Requests](http://githubbadges.herokuapp.com/koseven/koseven/pulls.svg)](https://github.com/koseven/koseven/pulls)
 [![License](https://poser.pugx.org/koseven/koseven/license.svg)](https://packagist.org/packages/koseven/koseven)
 [![Telegram](https://img.shields.io/badge/Telegram-joinChat-blue.svg)](https://telegram.me/koseven)
-[![Build Status Devel](https://travis-ci.org/koseven/koseven.svg?branch=devel)](https://travis-ci.org/koseven/koseven)
-[![Build Status Master](https://travis-ci.org/koseven/koseven.svg?branch=master)](https://travis-ci.org/koseven/koseven)
-
+[![Build Status](https://travis-ci.org/koseven/koseven.svg?branch=devel)](https://travis-ci.org/koseven/koseven)
 
 ## [Download 3.3.6](https://github.com/koseven/koseven/archive/3.3.6.zip)
 
