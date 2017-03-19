@@ -6,7 +6,7 @@
 [![Telegram](https://img.shields.io/badge/Telegram-joinChat-blue.svg)](https://telegram.me/koseven)
 [![Build Status](https://travis-ci.org/koseven/koseven.svg?branch=devel)](https://travis-ci.org/koseven/koseven)
 
-## [Download 3.3.6](https://github.com/koseven/koseven/archive/3.3.6.zip)
+## [Download 3.3.7](https://github.com/koseven/koseven/archive/3.3.7.zip)
 
 ### [Join the Telegram group](https://telegram.me/koseven)
 
