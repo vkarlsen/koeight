@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('Kohana bootstrap needs to be included before tests run');
+<?php
 use PHPUnit\Framework\TestCase;
 /**
  * Tests the Config group lib
