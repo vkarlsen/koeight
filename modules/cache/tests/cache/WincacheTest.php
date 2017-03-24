@@ -16,7 +16,7 @@ else
 	 * @group      kohana.cache
 	 * @category   Test
 	 * @author     Kohana Team
-	 * @copyright  (c) 2009-2012 Kohana Team
+	 * @copyright  (c) 2009-2017 Kohana Team
 	 * @license    http://kohanaphp.com/license
 	 */
 	class Kohana_WincacheTest extends Kohana_CacheBasicMethodsTest {

@@ -5,7 +5,7 @@
  * @package    Kohana/Cache
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2009-2012 Kohana Team
+ * @copyright  (c) 2009-2017 Kohana Team
  * @license    http://kohanaphp.com/license
  */
 interface Kohana_Cache_Tagging {

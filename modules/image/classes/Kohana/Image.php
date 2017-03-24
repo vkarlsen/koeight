@@ -5,7 +5,7 @@
  * @package    Kohana/Image
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2009 Kohana Team
+ * @copyright  (c) 2008-2017 Kohana Team
  * @license    http://kohanaphp.com/license.html
  */
 abstract class Kohana_Image {

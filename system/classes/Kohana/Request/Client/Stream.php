@@ -12,8 +12,8 @@
  * @package    Kohana
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2012 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) 2008-2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  * @uses       [PHP Streams](http://php.net/manual/en/book.stream.php)
  */
 class Kohana_Request_Client_Stream extends Request_Client_External {

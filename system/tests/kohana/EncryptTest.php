@@ -12,7 +12,7 @@
  * @author     Kohana Team
  * @author     Samuel Demirdjian <sam@enov.ws>
  * @copyright  (c) 2014 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_EncryptTest extends Unittest_TestCase
 {

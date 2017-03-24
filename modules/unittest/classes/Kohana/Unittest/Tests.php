@@ -7,7 +7,7 @@
  * @author     Kohana Team
  * @author     BRMatt <matthew@sigswitch.com>
  * @author	   Paul Banks
- * @copyright  (c) 2008-2009 Kohana Team
+ * @copyright  (c) 2008-2017 Kohana Team
  * @license    http://kohanaphp.com/license
  */
 class Kohana_Unittest_Tests {

@@ -17,8 +17,8 @@
  * @package    Kohana
  * @category   Controller
  * @author     Kohana Team
- * @copyright  (c) 2008-2012 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) 2008-2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Controller {
 
