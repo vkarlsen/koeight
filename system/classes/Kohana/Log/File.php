@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * File log writer. Writes out messages and stores them in a YYYY/MM directory.
  *
