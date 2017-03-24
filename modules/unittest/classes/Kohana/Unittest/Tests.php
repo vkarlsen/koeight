@@ -8,7 +8,7 @@
  * @author     BRMatt <matthew@sigswitch.com>
  * @author	   Paul Banks
  * @copyright  (c) 2008-2017 Kohana Team
- * @license    http://kohanaphp.com/license
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Unittest_Tests {
 	static protected $cache = array();

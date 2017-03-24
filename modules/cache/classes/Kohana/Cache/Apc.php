@@ -34,7 +34,7 @@
  * @category   Base
  * @author     Kohana Team
  * @copyright  (c) 2009-2017 Kohana Team
- * @license    http://kohanaphp.com/license
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Cache_Apc extends Cache implements Cache_Arithmetic {
 

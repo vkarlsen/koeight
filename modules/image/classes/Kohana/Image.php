@@ -6,7 +6,7 @@
  * @category   Base
  * @author     Kohana Team
  * @copyright  (c) 2008-2017 Kohana Team
- * @license    http://kohanaphp.com/license.html
+ * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Image {
 

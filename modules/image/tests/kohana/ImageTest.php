@@ -7,7 +7,7 @@
  * @category   Test
  * @author     Kohana Team
  * @copyright  (c) 2009-2017 Kohana Team
- * @license    http://http://kohanaframework.org/license
+ * @license    https://koseven.ga/LICENSE.md
  */
 
 class Kohana_ImageTest extends PHPUnit_Framework_TestCase {

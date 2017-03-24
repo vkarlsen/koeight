@@ -6,7 +6,7 @@
  * @category   Drivers
  * @author     Kohana Team
  * @copyright  (c) 2008-2017 Kohana Team
- * @license    http://kohanaphp.com/license.html
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Image_GD extends Image {
 
