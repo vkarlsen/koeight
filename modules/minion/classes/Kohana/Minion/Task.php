@@ -5,7 +5,7 @@
  * @package    Kohana
  * @category   Minion
  * @author     Kohana Team
- * @copyright  (c) 2009-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Minion_Task {

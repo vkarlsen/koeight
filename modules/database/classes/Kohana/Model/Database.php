@@ -5,7 +5,7 @@
  * @package    Kohana/Database
  * @category   Models
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Model_Database extends Model {

@@ -12,7 +12,7 @@
  * @package    Kohana
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  * @uses       [PHP Streams](http://php.net/manual/en/book.stream.php)
  */

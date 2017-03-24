@@ -7,7 +7,7 @@
  * @package    Kohana/Userguide
  * @category   Undocumented
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  * @since      3.0.7
  */

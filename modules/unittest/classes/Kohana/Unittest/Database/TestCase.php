@@ -5,7 +5,7 @@
  * @package    Kohana/UnitTest
  * @author     Kohana Team
  * @author     BRMatt <matthew@sigswitch.com>
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Unittest_Database_TestCase extends PHPUnit_Extensions_Database_TestCase {

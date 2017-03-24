@@ -8,7 +8,7 @@
  *
  * @package    Kohana/UnitTest
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Unittest_Database_TestCase extends Kohana_Unittest_Database_TestCase

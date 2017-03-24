@@ -63,7 +63,7 @@ Tasks can have built-in help. Minion will read class docblocks that you specify:
 	 * @package    Kohana
 	 * @category   Helpers
 	 * @author     Kohana Team
-	 * @copyright  (c) 2009-2017 Kohana Team
+	 * @copyright  (c) Kohana Team
 	 * @license    https://koseven.ga/LICENSE.md
 	 */
 	class Minion_Task_Demo extends Minion_Task
