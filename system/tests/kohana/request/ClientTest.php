@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('Kohana bootstrap needs to be included before tests run');
+<?php
 
 /**
  * Unit tests for generic Request_Client class
@@ -11,7 +11,7 @@
  * @category   Tests
  * @author     Kohana Team
  * @author	   Andrew Coulton
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Request_ClientTest extends Unittest_TestCase

@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * Text helper class. Provides simple methods for working with text.
  *
  * @package    Kohana
  * @category   Helpers
  * @author     Kohana Team
- * @copyright  (c) 2007-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Text {

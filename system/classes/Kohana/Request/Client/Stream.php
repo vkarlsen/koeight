@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * [Request_Client_External] Stream driver performs external requests using php
  * sockets. To use this driver, ensure the following is completed
@@ -12,7 +12,7 @@
  * @package    Kohana
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  * @uses       [PHP Streams](http://php.net/manual/en/book.stream.php)
  */

@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * Routes are used to determine the controller and action for a requested URI.
  * Every route generates a regular expression which is used to match a URI
@@ -30,7 +30,7 @@
  * @package    Kohana
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Route {

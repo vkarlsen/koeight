@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * [Object Relational Mapping][ref-orm] (ORM) is a method of abstracting database
  * access to standard PHP calls. All table rows are represented as model objects,
@@ -10,7 +10,7 @@
  *
  * @package    Kohana/ORM
  * @author     Kohana Team
- * @copyright  (c) 2007-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_ORM extends Model implements serializable {

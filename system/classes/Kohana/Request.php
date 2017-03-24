@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * Request. Uses the [Route] class to determine what
  * [Controller] to send the request to.
@@ -6,7 +6,7 @@
  * @package    Kohana
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Request implements HTTP_Request {

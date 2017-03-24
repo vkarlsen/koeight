@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * Provides simple benchmarking and profiling. To display the statistics that
  * have been collected, load the `profiler/stats` [View]:
@@ -8,7 +8,7 @@
  * @package    Kohana
  * @category   Helpers
  * @author     Kohana Team
- * @copyright  (c) 2009-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Profiler {

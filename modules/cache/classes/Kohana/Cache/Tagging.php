@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+<?php
 /**
  * Kohana Cache Tagging Interface
  *
  * @package    Kohana/Cache
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2009-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 interface Kohana_Cache_Tagging {

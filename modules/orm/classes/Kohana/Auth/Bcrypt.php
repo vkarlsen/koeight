@@ -1,10 +1,10 @@
-<?php defined('SYSPATH') OR die('No direct access allowed.');
+<?php
 
 /**
  * Bcrypt Auth driver.
  * @package    Kohana/Auth
  * @author     Kohana Team
- * @copyright  (c) 2007-2012 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    http://kohanaframework.org/license
  */
 class Kohana_Auth_Bcrypt extends Auth {

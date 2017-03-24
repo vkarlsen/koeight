@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * Model base class. All models should extend this class.
  *
  * @package    Kohana
  * @category   Models
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Model {

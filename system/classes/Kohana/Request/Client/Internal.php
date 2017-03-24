@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * Request Client for internal execution
  *
  * @package    Kohana
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  * @since      3.1.0
  */

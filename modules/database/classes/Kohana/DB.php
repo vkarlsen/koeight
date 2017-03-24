@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * Provides a shortcut to get Database related objects for [making queries](../database/query).
  *
@@ -16,7 +16,7 @@
  * @package    Kohana/Database
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2009 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_DB {

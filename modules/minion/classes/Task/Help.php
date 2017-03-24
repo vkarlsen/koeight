@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+<?php
 /**
  * Help task to display general instructons and list all tasks
  *
  * @package    Kohana
  * @category   Helpers
  * @author     Kohana Team
- * @copyright  (c) 2009-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Task_Help extends Minion_Task

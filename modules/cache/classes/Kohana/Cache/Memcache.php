@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+<?php
 /**
  * [Kohana Cache](api/Kohana_Cache) Memcache driver,
  *
@@ -77,7 +77,7 @@
  * @category   Base
  * @version    2.0
  * @author     Kohana Team
- * @copyright  (c) 2009-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Cache_Memcache extends Cache implements Cache_Arithmetic {

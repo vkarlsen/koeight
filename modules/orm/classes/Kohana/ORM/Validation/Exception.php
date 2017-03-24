@@ -1,10 +1,10 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * ORM Validation exceptions.
  *
  * @package    Kohana/ORM
  * @author     Kohana Team
- * @copyright  (c) 2007-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_ORM_Validation_Exception extends Kohana_Exception {

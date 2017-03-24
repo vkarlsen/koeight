@@ -1,10 +1,10 @@
-<?php defined('SYSPATH') OR die('No direct access allowed.');
+<?php
 /**
  * Default auth user
  *
  * @package    Kohana/Auth
  * @author     Kohana Team
- * @copyright  (c) 2007-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Model_Auth_User extends ORM {

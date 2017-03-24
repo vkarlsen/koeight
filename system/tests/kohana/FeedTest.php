@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('Kohana bootstrap needs to be included before tests run');
+<?php
 
 /**
  * Test for feed helper
@@ -11,7 +11,7 @@
  * @category   Tests
  * @author     Kohana Team
  * @author     Jeremy Bush <contractfrombelow@gmail.com>
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_FeedTest extends Unittest_TestCase

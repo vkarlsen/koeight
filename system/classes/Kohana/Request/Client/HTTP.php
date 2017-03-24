@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
  * [Request_Client_External] HTTP driver performs external requests using the
  * php-http extension. To use this driver, ensure the following is completed
@@ -12,7 +12,7 @@
  * @package    Kohana
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  * @uses       [PECL HTTP](http://php.net/manual/en/book.http.php)
  */
