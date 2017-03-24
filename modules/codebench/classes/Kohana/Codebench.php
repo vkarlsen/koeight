@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') or die('No direct access allowed.');
+<?php
 /**
  * Codebench — A benchmarking module.
  *
  * @package    Kohana/Codebench
  * @category   Base
  * @author     Kohana Team
- * @copyright  (c) 2009 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Codebench {

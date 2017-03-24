@@ -1,4 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
+<?php
 /**
  * Set Kodoc_Missing::create_class as an autoloading to prevent missing classes
  * from crashing the api browser.  Classes that are missing a parent will
@@ -7,7 +7,7 @@
  * @package    Kohana/Userguide
  * @category   Undocumented
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  * @since      3.0.7
  */

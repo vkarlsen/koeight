@@ -6,7 +6,7 @@
  *
  * @package    Kohana/Userguide
  * @author     Kohana Team
- * @copyright  (c) 2008-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_KodocTest extends PHPUnit_Framework_TestCase

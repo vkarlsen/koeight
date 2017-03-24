@@ -1,11 +1,11 @@
-<?php defined('SYSPATH') OR die('No direct access allowed.');
+<?php
 /**
  * User authorization library. Handles user login and logout, as well as secure
  * password hashing.
  *
  * @package    Kohana/Auth
  * @author     Kohana Team
- * @copyright  (c) 2007-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 abstract class Kohana_Auth {

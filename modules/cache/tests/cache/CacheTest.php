@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
  * @group      kohana.cache
  * @category   Test
  * @author     Kohana Team
- * @copyright  (c) 2009-2017 Kohana Team
+ * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_CacheTest extends TestCase {
