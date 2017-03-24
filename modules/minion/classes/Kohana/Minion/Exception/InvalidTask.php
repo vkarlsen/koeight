@@ -5,8 +5,8 @@
  * @package    Kohana
  * @category   Minion
  * @author     Kohana Team
- * @copyright  (c) 2009-2011 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) 2009-2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Minion_Exception_InvalidTask extends Minion_Exception {
 

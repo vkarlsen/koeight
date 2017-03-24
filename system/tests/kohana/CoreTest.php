@@ -13,8 +13,8 @@
  * @category   Tests
  * @author     Kohana Team
  * @author     Jeremy Bush <contractfrombelow@gmail.com>
- * @copyright  (c) 2008-2012 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) 2008-2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_CoreTest extends Unittest_TestCase
 {

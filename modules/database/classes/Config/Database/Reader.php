@@ -7,7 +7,7 @@
  * @category   Configuration
  * @author     Kohana Team
  * @copyright  (c) 2012 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Config_Database_Reader extends Kohana_Config_Database_Reader
 {

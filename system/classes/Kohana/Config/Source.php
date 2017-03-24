@@ -7,8 +7,8 @@
  * @package    Kohana
  * @category   Configuration
  * @author     Kohana Team
- * @copyright  (c) 2012-2014 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) 2012-2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 
 interface Kohana_Config_Source {}

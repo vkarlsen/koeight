@@ -10,8 +10,8 @@ use PHPUnit\Framework\TestCase;
  * @author     Kohana Team
  * @author     Jeremy Bush <contractfrombelow@gmail.com>
  * @author     Matt Button <matthew@sigswitch.com>
- * @copyright  (c) 2008-2014 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) 2008-2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Config_GroupTest extends TestCase
 {

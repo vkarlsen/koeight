@@ -10,8 +10,8 @@
  * @package    Kohana/Userguide
  * @category   Tests
  * @author     Kohana Team
- * @copyright  (c) 2008-2013 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) 2008-2017 Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Userguide_ControllerTest extends Unittest_TestCase
 {

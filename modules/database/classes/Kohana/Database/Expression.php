@@ -14,7 +14,7 @@
  * @category   Base
  * @author     Kohana Team
  * @copyright  (c) 2009 Kohana Team
- * @license    http://kohanaphp.com/license
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Kohana_Database_Expression {
 
