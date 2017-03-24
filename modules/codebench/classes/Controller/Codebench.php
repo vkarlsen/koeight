@@ -5,8 +5,8 @@
  * @package    Kohana/Codebench
  * @category   Controllers
  * @author     Kohana Team
- * @copyright  (c) 2009 Kohana Team
- * @license    http://kohanaphp.com/license.html
+ * @copyright  (c) Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 class Controller_Codebench extends Kohana_Controller_Template {
 

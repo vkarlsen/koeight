@@ -4,8 +4,8 @@
  *
  * @package    Kohana/Codebench
  * @author     Kohana Team
- * @copyright  (c) 2009 Kohana Team
- * @license    http://kohanaphp.com/license.html
+ * @copyright  (c) Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
 ?>
 <!DOCTYPE html>
