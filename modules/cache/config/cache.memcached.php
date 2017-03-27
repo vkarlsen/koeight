@@ -1,5 +1,4 @@
-<?php defined('SYSPATH') or die('No direct script access.');
-
+<?php
 return array
 (
     // @link http://github.com/gimpe/kohana-memcached
