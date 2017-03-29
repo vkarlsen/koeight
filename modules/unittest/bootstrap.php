@@ -128,3 +128,10 @@ if ( ! in_array($unittest_path, $modules)) {
 	$modules['unittest'] = $unittest_path;
 	Kohana::modules($modules);
 }
+
+// Encryption is supported by a module, add it to the module list
+$encrypt_path = MODPATH.'encrypt';
+if ( ! in_array($encrypt_path, $modules)) {
+	$modules['encrypt'] = $encrypt_path;
+	Kohana::modules($modules);
+}
