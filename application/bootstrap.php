@@ -57,6 +57,11 @@ spl_autoload_register(array('Kohana', 'auto_load'));
 ini_set('unserialize_callback_func', 'spl_autoload_call');
 
 /**
+ * Enable composer autoload libraries
+ */
+// require '../vendor/autoload.php';
+
+/**
  * Set the mb_substitute_character to "none"
  *
  * @link http://www.php.net/manual/function.mb-substitute-character.php
