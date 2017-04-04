@@ -1,6 +1,6 @@
 # Developing locally
 
-Clone the repo and develop on the Master branch. Each release will have its own Tag.
+Clone the repo and develop on the Devel branch. Each release will have its own Tag.
 
 I know its simple but for now will work ;)
 
@@ -11,38 +11,64 @@ All features and bugfixes must be fully tested and reference an issue in  [GitHu
 
 It's highly recommended that you write/run unit tests during development as it can help you pick up on issues early on.  See the Unit Testing section below.
 
-## Creating new features
+## Cloning repo
+Go to https://github.com/koseven/koseven for each repo in the top right theres a button that says Fork. Click there to clone each repo. That will copy the repos to your github user, ex: https://github.com/neo22s/koseven
 
-New features or API breaking modifications should be developed in separate PR so as to isolate them
-until they're stable.
+Clone your project in local and use devel branch
+```
+git clone git@github.com:neo22s/koseven.git
+cd koseven
+git checkout devel
+```
 
-**Features without tests written will be rejected! There are NO exceptions.**
+This will clone the koseven project
 
-The naming convention for feature branches is:
+Ready ;)
 
-  {version}/feature/{issue number}-{short hyphenated description}
-  
-  // e.g.
+## How to commit
+If you have made modifications to the code.
 
-  3.2/feature/4045-rewriting-config-system
-  
-When a new feature is complete and fully tested it can be merged into its respective release branch using
-`git pull --no-ff`. The `--no-ff` switch is important as it tells Git to always create a commit
-detailing what branch you're merging from. This makes it a lot easier to analyse a feature's history.
+```
+git status # to see what's going on
+git commit -a -m 'message here, this will commit the changes on the tracked files'
+git push origin devel # will "upload" the changes to your repo
+```
 
-Here's a quick example:
+Tricks
+```
+git add . # will add all the files, even new ones
+git add -u # will add all the tracked files even the deleted ones
+git commit -a -m 'working closed etc  #725' # this will commit and mention an issue in the repo
+```
 
-  > git status
-  # On branch 3.2/feature/4045-rewriting-everything
-  
-  > git checkout 3.1/develop
-  # Switched to branch '3.1/develop'
 
-  > git merge --no-ff 3.2/feature/4045-rewriting-everything
+## Pull Requests
 
-**If a change you make intentionally breaks the API then please correct the relevant tests before pushing!**
+Now you have new code at your fork ex https://github.com/neo22s/koseven. To move them to the original https://github.com/koseven/koseven repo you need to go to https://github.com/neo22s/koseven, and click on Pull Request (next to compare). This will create a pull request to the original code and the responsible will decide to merge it or not.
+
+Notes:
+- Try to submit pull requests against devel branch for easier merging
+- Try not to pollute your pull request with unintended changes--keep them simple and small
+- Try to share which browsers your code has been tested in before submitting a pull request
+
+## Keep sync with original repo
+First time, add a remote with the upstream
+```
+git remote add upstream git@github.com:yclas/yclas.git
+```
+
+Everytime you want to sync just
+```
+git fetch upstream
+git merge upstream/devel
+```
+
+Remember to be at you devel branch!
+
+
 
 ## Bug fixing 
+
 Make a PR with the fix, explain as in detail as possiblle.
 
 ## Tagging releases
@@ -51,52 +77,6 @@ Tag names should be prefixed with a `v`, this helps to separate tag references f
 
 For example, if you were creating a tag for the `3.1.0` release the tag name would be `v3.1.0`
 
-# Merging changes from remote repositories
-
-Now that you have a remote repository, you can pull changes in the remote "koseven" repository
-into your local repository:
-
-    > git pull koseven 3.1/master
-
-**Note:** Before you pull changes you should make sure that any modifications you've made locally
-have been committed.
-
-Sometimes a commit you've made locally will conflict with one made in the remote "koseven" repo.
-
-There are a couple of scenarios where this might happen:
-
-## The conflict is due to a few unrelated commits and you want to keep changes made in both commits
-
-You'll need to manually modify the files to resolve the conflict, see the "Resolving a merge"
-section [in the Git SCM book](http://book.git-scm.com/3_basic_branching_and_merging.html) for more info
-
-## You've fixed something locally which someone else has already done in the remote repo
-
-The simplest way to fix this is to remove all the changes that you've made locally.
-
-You can do this using 
-
-    > git reset --hard koseven
-
-## You've fixed something locally which someone else has already fixed but you also have separate commits you'd like to keep
-
-If this is the case then you'll want to use a tool called rebase.  First of all we need to
-get rid of the conflicts created due to the merge:
-
-    > git reset --hard HEAD
-
-Then find the hash of the offending local commit and run:
-
-    > git rebase -i {offending commit hash}
-
-i.e.
-
-  > git rebase -i 57d0b28
-
-A text editor will open with a list of commits. Delete the line containing the offending commit
-before saving the file & closing your editor.
-
-Git will remove the commit and you can then pull/merge the remote changes.
 
 # Unit Testing
 

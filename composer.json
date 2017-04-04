@@ -21,13 +21,6 @@
       "role": "developer"
     }
   ],
-  "autoload": {
-    "psr-0": {
-      "": [
-        "system/classes"
-      ]
-    }
-  },
   "support": {
     "forum": "https://telegram.me/koseven",
     "issues": "https://github.com/koseven/koseven/issues"
