@@ -1,6 +1,6 @@
-<?php defined('SYSPATH') OR die('No direct script access.');
+<?php
 /**
- * The Encrypt library provides two-way encryption of text and binary strings
+ * The Encrypt Mcrypt engine provides two-way encryption of text and binary strings
  * using the [Mcrypt](http://php.net/mcrypt) extension, which consists of three
  * parts: the key, the cipher, and the mode.
  *
@@ -20,20 +20,10 @@
  * @package    Kohana
  * @category   Security
  * @author     Kohana Team
- * @copyright  (c) 2007-2012 Kohana Team
- * @license    http://kohanaframework.org/license
+ * @copyright  (c) Kohana Team
+ * @license    https://koseven.ga/LICENSE.md
  */
-class Kohana_Encrypt {
-
-	/**
-	 * @var  string  default instance name
-	 */
-	public static $default = 'default';
-
-	/**
-	 * @var  array  Encrypt class instances
-	 */
-	public static $instances = array();
+class Kohana_Encrypt_Engine_Mcrypt extends Kohana_Encrypt_Engine {
 
 	/**
 	 * @var  string  RAND type to use
@@ -44,99 +34,54 @@ class Kohana_Encrypt {
 	protected static $_rand = MCRYPT_DEV_URANDOM;
 
 	/**
-	 * @var string Encryption key
-	 */
-	protected $_key;
-
-	/**
-	 * @var string mcrypt mode
-	 */
-	protected $_mode;
-
-	/**
-	 * @var string mcrypt cipher
-	 */
-	protected $_cipher;
-
-	/**
 	 * @var int the size of the Initialization Vector (IV) in bytes
 	 */
 	protected $_iv_size;
-	
-	/**
-	 * Returns a singleton instance of Encrypt. An encryption key must be
-	 * provided in your "encrypt" configuration file.
-	 *
-	 *     $encrypt = Encrypt::instance();
-	 *
-	 * @param   string  $name   configuration group name
-	 * @return  Encrypt
-	 */
-	public static function instance($name = NULL)
-	{
-		if ($name === NULL)
-		{
-			// Use the default instance name
-			$name = Encrypt::$default;
-		}
-
-		if ( ! isset(Encrypt::$instances[$name]))
-		{
-			// Load the configuration data
-			$config = Kohana::$config->load('encrypt')->$name;
-
-			if ( ! isset($config['key']))
-			{
-				// No default encryption key is provided!
-				throw new Kohana_Exception('No encryption key is defined in the encryption configuration group: :group',
-					array(':group' => $name));
-			}
-
-			if ( ! isset($config['mode']))
-			{
-				// Add the default mode
-				$config['mode'] = MCRYPT_MODE_NOFB;
-			}
-
-			if ( ! isset($config['cipher']))
-			{
-				// Add the default cipher
-				$config['cipher'] = MCRYPT_RIJNDAEL_128;
-			}
-
-			// Create a new instance
-			Encrypt::$instances[$name] = new Encrypt($config['key'], $config['mode'], $config['cipher']);
-		}
-
-		return Encrypt::$instances[$name];
-	}
 
 	/**
 	 * Creates a new mcrypt wrapper.
 	 *
-	 * @param   string  $key    encryption key
-	 * @param   string  $mode   mcrypt mode
-	 * @param   string  $cipher mcrypt cipher
+	 * @param   mixed   $key_config    mcrypt key or config array
+	 * @param   string  $mode          mcrypt mode
+	 * @param   string  $cipher        mcrypt cipher
 	 */
-	public function __construct($key, $mode, $cipher)
+	public function __construct($key_config, $mode = NULL, $cipher = NULL)
 	{
-		// Find the max length of the key, based on cipher and mode
-		$size = mcrypt_get_key_size($cipher, $mode);
+		if ($mode === NULL)
+		{
+			// Add the default mode
+			$mode = MCRYPT_MODE_NOFB;
+		}
 
-		if (isset($key[$size]))
+		if ($cipher === NULL)
+		{
+			// Add the default cipher
+			$cipher = MCRYPT_RIJNDAEL_128;
+		}
+
+		parent::__construct($key_config, $mode, $cipher);
+
+		// Find the max length of the key, based on cipher and mode
+		$size = mcrypt_get_key_size($this->_cipher, $this->_mode);
+
+		if (isset($this->_key[$size]))
 		{
 			// Shorten the key to the maximum size
-			$key = substr($key, 0, $size);
+			$this->_key = substr($this->_key, 0, $size);
 		}
 		else if (version_compare(PHP_VERSION, '5.6.0', '>='))
 		{
-			$key = $this->_normalize_key($key, $cipher, $mode);
+			$this->_key = $this->_normalize_key($this->_key, $this->_cipher, $this->_mode);
 		}
 
-		// Store the key, mode, and cipher
-		$this->_key    = $key;
-		$this->_mode   = $mode;
-		$this->_cipher = $cipher;
+		/*
+		 * Silently use MCRYPT_DEV_URANDOM when the chosen random number generator
+		 * is not one of those that are considered secure.
+		 */
+		if ((Encrypt_Engine_Mcrypt::$_rand !== MCRYPT_DEV_URANDOM) AND (Encrypt_Engine_Mcrypt::$_rand !== MCRYPT_DEV_RANDOM))
+		{
+			Encrypt_Engine_Mcrypt::$_rand = MCRYPT_DEV_URANDOM;
+		}
 
 		// Store the IV size
 		$this->_iv_size = mcrypt_get_iv_size($this->_cipher, $this->_mode);
@@ -154,11 +99,8 @@ class Kohana_Encrypt {
 	 * @param   string  $data   data to be encrypted
 	 * @return  string
 	 */
-	public function encode($data)
+	public function encrypt($data, $iv)
 	{
-		// Get an initialization vector
-		$iv = $this->_create_iv();
-
 		// Encrypt the data using the configured options and generated iv
 		$data = mcrypt_encrypt($this->_cipher, $this->_key, $data, $this->_mode, $iv);
 
@@ -175,7 +117,7 @@ class Kohana_Encrypt {
 	 * @return  FALSE   if decryption fails
 	 * @return  string
 	 */
-	public function decode($data)
+	public function decrypt($data)
 	{
 		// Convert the data back to binary
 		$data = base64_decode($data, TRUE);
@@ -207,21 +149,10 @@ class Kohana_Encrypt {
 	 *
 	 * @return string the initialization vector or FALSE on error
 	 */
-	protected function _create_iv()
+	public function create_iv()
 	{
-		/*
-		 * Silently use MCRYPT_DEV_URANDOM when the chosen random number generator
-		 * is not one of those that are considered secure.
-		 *
-		 * Also sets Encrypt::$_rand to MCRYPT_DEV_URANDOM when it's not already set
-		 */
-		if ((Encrypt::$_rand !== MCRYPT_DEV_URANDOM) AND ( Encrypt::$_rand !== MCRYPT_DEV_RANDOM))
-		{
-			Encrypt::$_rand = MCRYPT_DEV_URANDOM;
-		}
-
 		// Create a random initialization vector of the proper size for the current cipher
-		return mcrypt_create_iv($this->_iv_size, Encrypt::$_rand);
+		return mcrypt_create_iv($this->_iv_size, Encrypt_Engine_Mcrypt::$_rand);
 	}
 
 	/**
