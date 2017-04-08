@@ -1078,7 +1078,7 @@ class Kohana_Core {
 	 */
 	public static function version()
 	{
-		return 'Kohana Framework '.Kohana::VERSION.' ('.Kohana::CODENAME.')';
+		return 'Koseven '.Kohana::VERSION.' ('.Kohana::CODENAME.')';
 	}
 
 }
