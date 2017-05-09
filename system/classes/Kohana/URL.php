@@ -93,7 +93,14 @@ class Kohana_URL {
 				// If subdomain passed, then append to host
 				if( ! is_null($subdomain))
 				{
-					$host = $subdomain.'.'.$host;
+					if(strstr($host, '.') === false)
+					{
+						$host = $subdomain . '.' . $host;
+					}
+					else
+					{
+						$host = $subdomain . '.' . substr($host, strpos($host, '.') + 1);
+					}
 				}
 				
 				// make $host lowercase
