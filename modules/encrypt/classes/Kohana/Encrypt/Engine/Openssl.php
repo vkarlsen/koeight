@@ -149,7 +149,7 @@ class Kohana_Encrypt_Engine_Openssl extends Kohana_Encrypt_Engine {
 
 		if ($decrypted === FALSE)
 		{
-				return FALSE;
+			return FALSE;
 		}
 
 		return $decrypted;
@@ -216,4 +216,5 @@ class Kohana_Encrypt_Engine_Openssl extends Kohana_Encrypt_Engine {
 
 		throw new Kohana_Exception('Could not create initialization vector.');
 	}
+
 }
