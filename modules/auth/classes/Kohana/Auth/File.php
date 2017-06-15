@@ -84,11 +84,9 @@ class Kohana_Auth_File extends Auth {
 		$username = $this->get_user();
 
 		if ($username === FALSE)
-		{
 			return FALSE;
-		}
 
 		return ($password === $this->password($username));
 	}
 
-} // End Auth File
+}

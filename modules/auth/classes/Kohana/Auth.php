@@ -168,4 +168,4 @@ abstract class Kohana_Auth {
 		return TRUE;
 	}
 
-} // End Auth
+}
