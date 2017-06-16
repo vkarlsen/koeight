@@ -119,13 +119,9 @@ class Kohana_Image_Imagick extends Image {
 	protected function _do_flip($direction)
 	{
 		if ($direction === Image::HORIZONTAL)
-		{
 			return $this->im->flopImage();
-		}
 		else
-		{
 			return $this->im->flipImage();
-		}
 	}
 
 	protected function _do_sharpen($amount)
@@ -150,7 +146,7 @@ class Kohana_Image_Imagick extends Image {
 		$reflection->setImagePage($this->width, $height, 0, 0);
 
 		// Select the fade direction
-		$direction = array('transparent', 'black');
+		$direction = ['transparent', 'black'];
 
 		if ($fade_in)
 		{
@@ -335,4 +331,5 @@ class Kohana_Image_Imagick extends Image {
 
 		return array($format, $type);
 	}
-} // End Kohana_Image_Imagick
+
+}
