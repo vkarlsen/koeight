@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @package    Kohana/Image
  * @group      kohana
@@ -9,7 +8,6 @@
  * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
-
 class Kohana_ImageTest extends PHPUnit_Framework_TestCase {
 
 	protected function setUp()
@@ -33,4 +31,4 @@ class Kohana_ImageTest extends PHPUnit_Framework_TestCase {
 		unlink(Kohana::$cache_dir.'/test_image');
 	}
 
-} // End Kohana_ImageTest
+}

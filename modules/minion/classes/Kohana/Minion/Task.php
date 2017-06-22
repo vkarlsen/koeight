@@ -88,7 +88,7 @@ abstract class Kohana_Minion_Task {
 		{
 			throw new Minion_Exception_InvalidTask(
 				"Task ':task' is not a valid minion task",
-				array(':task' => $class)
+				[':task' => $class]
 			);
 		}
 
@@ -113,7 +113,7 @@ abstract class Kohana_Minion_Task {
 	 *
 	 * @var array
 	 */
-	protected $_options = array();
+	protected $_options = [];
 
 	/**
 	 * Populated with the accepted options for this task.
@@ -121,7 +121,7 @@ abstract class Kohana_Minion_Task {
 	 *
 	 * @var array
 	 */
-	protected $_accepted_options = array();
+	protected $_accepted_options = [];
 
 	protected $_method = '_execute';
 
@@ -300,7 +300,7 @@ abstract class Kohana_Minion_Task {
 		$comment = array_slice(explode("\n", $comment), 1, -1);
 
 		// Tag content
-		$tags        = array();
+		$tags = [];
 
 		foreach ($comment as $i => $line)
 		{
@@ -338,7 +338,7 @@ abstract class Kohana_Minion_Task {
 	 */
 	protected function _compile_task_list(array $files, $prefix = '')
 	{
-		$output = array();
+		$output = [];
 
 		foreach ($files as $file => $path)
 		{
@@ -361,4 +361,5 @@ abstract class Kohana_Minion_Task {
 
 		return $output;
 	}
+
 }
