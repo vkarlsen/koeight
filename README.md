@@ -60,7 +60,7 @@ Feel free to [open an issue on github](https://github.com/koseven/koseven/issues
 
 ## Documentation
 
-We are working to improve the original Kohana documentation but in the meantime fill free to use the one provided by KO.
+We are working to improve the original Kohana documentation but in the meantime feel free to use the one provided by KO.
 
 Koseven documentation can be found at [docs.koseven.ga](https://docs.koseven.ga) which also contains an API browser.
 
