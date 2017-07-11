@@ -152,7 +152,7 @@ class Kohana_URL {
 		if ( ! UTF8::is_ascii($path))
 		{
 			// Encode all non-ASCII characters, as per RFC 1738
-			$path = preg_replace_callback('~([^/]+)~', 'URL::_rawurlencode_callback', $path);
+			$path = preg_replace_callback('~([^/#]+)~', 'URL::_rawurlencode_callback', $path);
 		}
 
 		// Concat the URL
