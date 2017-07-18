@@ -19,7 +19,7 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 	 */
 	protected function _compile_join(Database $db, array $joins)
 	{
-		$statements = array();
+		$statements = [];
 
 		foreach ($joins as $join)
 		{
@@ -150,7 +150,7 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 	 */
 	protected function _compile_set(Database $db, array $values)
 	{
-		$set = array();
+		$set = [];
 		foreach ($values as $group)
 		{
 			// Split the set
@@ -180,7 +180,7 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 	 */
 	protected function _compile_group_by(Database $db, array $columns)
 	{
-		$group = array();
+		$group = [];
 
 		foreach ($columns as $column)
 		{
@@ -210,7 +210,7 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 	 */
 	protected function _compile_order_by(Database $db, array $columns)
 	{
-		$sort = array();
+		$sort = [];
 		foreach ($columns as $group)
 		{
 			list ($column, $direction) = $group;

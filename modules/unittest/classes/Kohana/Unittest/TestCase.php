@@ -23,7 +23,7 @@ abstract class Kohana_Unittest_TestCase extends TestCase {
 	 * A default set of environment to be applied before each test
 	 * @var array
 	 */
-	protected $environmentDefault = array();
+	protected $environmentDefault = [];
 
 	/**
 	 * Creates a predefined environment using the default environment
