@@ -78,7 +78,7 @@ abstract class Kohana_Minion_Task {
 		{
 			throw new Minion_Exception_InvalidTask(
 				"Task ':task' is not a valid minion task",
-				array(':task' => $class)
+				[':task' => $class]
 			);
 		}
 
@@ -208,7 +208,7 @@ abstract class Kohana_Minion_Task {
 		// Add a rule to each key making sure it's in the task
 		foreach ($validation->data() as $key => $value)
 		{
-			$validation->rule($key, array($this, 'valid_option'), array(':validation', ':field'));
+			$validation->rule($key, [$this, 'valid_option'], [':validation', ':field']);
 		}
 
 		return $validation;
@@ -294,7 +294,7 @@ abstract class Kohana_Minion_Task {
 	protected function _parse_doccomment($comment)
 	{
 		// Normalize all new lines to \n
-		$comment = str_replace(array("\r\n", "\n"), "\n", $comment);
+		$comment = str_replace(["\r\n", "\n"], "\n", $comment);
 
 		// Remove the phpdoc open/close tags and split
 		$comment = array_slice(explode("\n", $comment), 1, -1);
@@ -326,7 +326,7 @@ abstract class Kohana_Minion_Task {
 
 		$comment = trim(implode("\n", $comment));
 
-		return array($comment, $tags);
+		return [$comment, $tags];
 	}
 
 	/**

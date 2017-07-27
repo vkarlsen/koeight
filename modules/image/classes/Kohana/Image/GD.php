@@ -453,7 +453,7 @@ class Kohana_Image_GD extends Image {
 		if (empty(Image_GD::$_available_functions[Image_GD::IMAGELAYEREFFECT]))
 		{
 			throw new Kohana_Exception('This method requires :function, which is only available in the bundled version of GD',
-				array(':function' => 'imagelayereffect'));
+				[':function' => 'imagelayereffect']);
 		}
 
 		// Loads image if not yet loaded
@@ -648,7 +648,7 @@ class Kohana_Image_GD extends Image {
 			break;
 		}
 
-		return array($save, $type);
+		return [$save, $type];
 	}
 
 	/**

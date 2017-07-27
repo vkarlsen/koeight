@@ -634,7 +634,7 @@ abstract class Kohana_Image {
 			if ( ! is_dir($directory) OR ! is_writable($directory))
 			{
 				throw new Kohana_Exception('Directory must be writable: :directory',
-					array(':directory' => Debug::path($directory)));
+					[':directory' => Debug::path($directory)]);
 			}
 		}
 

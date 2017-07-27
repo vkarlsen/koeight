@@ -26,7 +26,7 @@ class Kohana_ORM_Behavior_LocalBehavior extends ORM_Behavior {
 	 */
 	public function on_construct($model, $id)
 	{
-		$params = array('construct', $id);
+		$params = ['construct', $id];
 		$result = call_user_func_array($this->_callback, $params);
 		
 		if (is_bool($result))
@@ -41,7 +41,7 @@ class Kohana_ORM_Behavior_LocalBehavior extends ORM_Behavior {
    */
   public function on_update($model)
   {
-		$params = array('update');
+		$params = ['update'];
 		call_user_func_array($this->_callback, $params);
   }
   
@@ -52,7 +52,7 @@ class Kohana_ORM_Behavior_LocalBehavior extends ORM_Behavior {
    */
   public function on_create($model)
   {
-		$params = array('create');
+		$params = ['create'];
 		call_user_func_array($this->_callback, $params);
   }
 }

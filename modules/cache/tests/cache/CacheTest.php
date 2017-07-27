@@ -23,32 +23,32 @@ class Kohana_CacheTest extends TestCase {
 	{
 		$tmp = realpath(sys_get_temp_dir());
 
-		$base = array();
+		$base = [];
 
 		if (Kohana::$config->load('cache.file'))
 		{
-			$base = array(
+			$base = [
 				// Test default group
-				array(
+				[
 					NULL,
 					Cache::instance('file')
-				),
+				],
 				// Test defined group
-				array(
+				[
 					'file',
 					Cache::instance('file')
-				),
-			);
+				],
+			];
 		}
 
 
-		return array(
+		return [
 			// Test bad group definition
-			$base+array(
+			$base+[
 				Kohana_CacheTest::BAD_GROUP_DEFINITION,
 				'Failed to load Kohana Cache group: 1010'
-			),
-		);
+			],
+		];
 	}
 
 	/**
@@ -60,9 +60,9 @@ class Kohana_CacheTest extends TestCase {
 	 */
 	public function test_instance($group, $expected)
 	{
-		if (in_array($group, array(
+		if (in_array($group, [
 			Kohana_CacheTest::BAD_GROUP_DEFINITION,
-			)
+			]
 		))
 		{
 			$this->setExpectedException('Cache_Exception');
@@ -113,42 +113,42 @@ class Kohana_CacheTest extends TestCase {
 	 */
 	public function provider_config()
 	{
-		return array(
-			array(
-				array(
+		return [
+			[
+				[
 					'server'     => 'otherhost',
 					'port'       => 5555,
 					'persistent' => TRUE,
-				),
+				],
 				NULL,
 				Kohana_CacheTest::EXPECT_SELF,
-				array(
+				[
 					'server'     => 'otherhost',
 					'port'       => 5555,
 					'persistent' => TRUE,
-				),
-			),
-			array(
+				],
+			],
+			[
 				'foo',
 				'bar',
 				Kohana_CacheTest::EXPECT_SELF,
-				array(
+				[
 					'foo'        => 'bar'
-				)
-			),
-			array(
+				]
+			],
+			[
 				'server',
 				NULL,
 				NULL,
-				array()
-			),
-			array(
+				[]
+			],
+			[
 				NULL,
 				NULL,
-				array(),
-				array()
-			)
-		);
+				[],
+				[]
+			]
+		];
 	}
 
 	/**
@@ -164,7 +164,7 @@ class Kohana_CacheTest extends TestCase {
 	 */
 	public function test_config($key, $value, $expected_result, array $expected_config)
 	{
-		$cache = $this->createMock('Cache_File', NULL, array(), '', FALSE);
+		$cache = $this->createMock('Cache_File', NULL, [], '', FALSE);
 
 		if ($expected_result === Kohana_CacheTest::EXPECT_SELF)
 		{
@@ -182,32 +182,32 @@ class Kohana_CacheTest extends TestCase {
 	 */
 	public function provider_sanitize_id()
 	{
-		return array(
-			array(
+		return [
+			[
 				'foo',
 				'foo'
-			),
-			array(
+			],
+			[
 				'foo+-!@',
 				'foo+-!@'
-			),
-			array(
+			],
+			[
 				'foo/bar',
 				'foo_bar',
-			),
-			array(
+			],
+			[
 				'foo\\bar',
 				'foo_bar'
-			),
-			array(
+			],
+			[
 				'foo bar',
 				'foo_bar'
-			),
-			array(
+			],
+			[
 				'foo\\bar snafu/stfu',
 				'foo_bar_snafu_stfu'
-			)
-		);
+			]
+		];
 	}
 
 	/**
@@ -223,12 +223,12 @@ class Kohana_CacheTest extends TestCase {
 	 */
 	public function test_sanitize_id($id, $expected)
 	{
-		$cache = $this->getMock('Cache', array(
+		$cache = $this->getMock('Cache', [
 			'get',
 			'set',
 			'delete',
 			'delete_all'
-			), array(array()),
+			], [[]],
 			'', FALSE
 		);
 

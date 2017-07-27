@@ -325,11 +325,11 @@ class Kohana_Image_Imagick extends Image {
 			break;
 			default:
 				throw new Kohana_Exception('Installed ImageMagick does not support :type images',
-					array(':type' => $extension));
+					[':type' => $extension]);
 			break;
 		}
 
-		return array($format, $type);
+		return [$format, $type];
 	}
 
 }
