@@ -298,10 +298,10 @@ class Kohana_Response implements HTTP_Response {
 		if (is_array($key))
 		{
 			reset($key);
-            foreach ($key as $_key => $_value)
-            {
-                $this->cookie($_key, $_value);
-            }
+			foreach ($key as $_key => $_value)
+			{
+				$this->cookie($_key, $_value);
+			}
 		}
 		else
 		{
