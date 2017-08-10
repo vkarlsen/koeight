@@ -2,7 +2,7 @@
 
 Kohana is an open source, [object oriented](http://en.wikipedia.org/wiki/Object-oriented_programming) [MVC](http://en.wikipedia.org/wiki/Model–view–controller "Model View Controller") [web framework](http://en.wikipedia.org/wiki/Web_application_framework) built using [PHP5](http://php.net/manual/intro-whatis "PHP Hypertext Preprocessor") by a team of volunteers that aims to be swift, secure, and small.
 
-[!!] Kohana is licensed under a [BSD license](https://github.com/koseven/koseven/blob/devel/LICENSE.md), so you can legally use it for any kind of open source, commercial, or personal project.
+[!!] Kohana is licensed under a [BSD license](https://github.com/koseven/koseven/blob/HEAD/LICENSE.md), so you can legally use it for any kind of open source, commercial, or personal project.
 
 ## What makes Kohana great?
 
