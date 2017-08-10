@@ -2,13 +2,18 @@
 
 [!!] Before continuing, make sure you have a web server (like Apache) configured with the following requirements.
 
- - PHP 5.3.3 or newer.
+ - PHP 7.0.21 or newer.
+ - [PHP Short open tag Enabled](http://php.net/manual/en/ini.core.php#ini.short-open-tag)
  - [Iconv Extension](http://php.net/iconv)
  - [Character Type (CTYPE) Extension](http://php.net/ctype)
+ - [PCRE Extension](http://php.net/pcre)
+ - [SPL Enabled](http://php.net/spl)
+ - [Reflections Enabled](http://php.net/reflection)
+ - [Filters Enabled](http://php.net/filter)
 
 # Download
 
-You can get the latest **stable** release on the [Kohana website](http://kohanaframework.org/). This will give you a fully functional application with an `application`, `modules`, and `system` directory.
+You can get the latest **stable** release on the [Koseven website](https://koseven.ga/). This will give you a fully functional application with an `application`, `modules`, and `system` directory.
 
 [!!] You can find information about the file structure on the [Cascading Filesystem](files) page.
 
@@ -71,6 +76,6 @@ Once your install page reports that your environment is set up correctly you nee
 
 ## Installing Kohana From GitHub
 
-The [source code](http://github.com/kohana/kohana) for Kohana is hosted with [GitHub](http://github.com). To install Kohana using the github source code first you need to install [git](http://git-scm.com/). Visit [http://help.github.com](http://help.github.com) for details on how to install git on your platform.
+The [source code](https://github.com/koseven/koseven) for Kohana is hosted with [GitHub](http://github.com). To install Kohana using the github source code first you need to install [git](http://git-scm.com/). Visit [http://help.github.com](http://help.github.com) for details on how to install git on your platform.
 
 [!!] For more information on installing Kohana using git, see the [Working with Git](tutorials/git) tutorial.
