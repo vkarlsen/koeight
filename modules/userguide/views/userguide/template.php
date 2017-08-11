@@ -14,6 +14,7 @@
 
 	<div id="kodoc-header">
 		<div class="container">
+			<a id="kodoc-logo" href="https://koseven.ga/">koseven</a>
 			<div id="kodoc-menu">
 				<ul>
 					<li class="guide first">

@@ -49,7 +49,7 @@ else
 
 	<p>
 		The following tests have been run to determine if Koseven will work in your environment.
-		If any of the tests have failed, consult the <a href="http://kohanaframework.org/guide/about.install">documentation</a>
+		If any of the tests have failed, consult the <a href="https://docs.koseven.ga/guide/kohana/install">documentation</a>
 		for more information on how to correct the problem.
 	</p>
 
