@@ -76,7 +76,7 @@ class Kohana_Database_Query {
 	 * Enables the query to be cached for a specified amount of time.
 	 *
 	 * @param   integer  $lifetime  number of seconds to cache, 0 deletes it from the cache
-	 * @param   boolean  whether or not to execute the query during a cache hit
+	 * @param   boolean  $force	whether or not to execute the query during a cache hit
 	 * @return  $this
 	 * @uses    Kohana::$cache_life
 	 */
