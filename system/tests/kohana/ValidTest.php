@@ -392,7 +392,7 @@ class Kohana_ValidTest extends Unittest_TestCase
 			['foo', TRUE,  FALSE],
 			['foo', FALSE, FALSE],
 
-			['foo@bar', TRUE, TRUE],
+			['foo@bar', TRUE, FALSE],
 			// RFC is less strict than the normal regex, presumably to allow
 			//  admin@localhost, therefore we IGNORE IT!!!
 			['foo@bar', FALSE, FALSE],
