@@ -1,4 +1,5 @@
 <?php
+use PHPUnit\DbUnit\TestCase;
 /**
  * TestCase for testing a database
  *
@@ -8,7 +9,7 @@
  * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
-abstract class Kohana_Unittest_Database_TestCase extends PHPUnit_Extensions_Database_TestCase {
+abstract class Kohana_Unittest_Database_TestCase extends TestCase{
 
 
 	/**

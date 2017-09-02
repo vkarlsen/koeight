@@ -392,7 +392,7 @@ class Kohana_ValidTest extends Unittest_TestCase
 			['foo', TRUE,  FALSE],
 			['foo', FALSE, FALSE],
 
-			['foo@bar', TRUE, TRUE],
+			['foo@bar', TRUE, FALSE],
 			// RFC is less strict than the normal regex, presumably to allow
 			//  admin@localhost, therefore we IGNORE IT!!!
 			['foo@bar', FALSE, FALSE],
@@ -402,11 +402,7 @@ class Kohana_ValidTest extends Unittest_TestCase
 			['foo+asd@bar.sub.com', FALSE, TRUE],
 			['foo.asd@bar.sub.com', FALSE, TRUE],
 			// RFC says 254 length max #4011
-			[Text::random(NULL, 200).'@'.Text::random(NULL, 50).'.com', FALSE, FALSE],
-			// Empty test
-			['', TRUE, FALSE],
-			[NULL, TRUE, FALSE],
-			[FALSE, TRUE, FALSE],
+			[Text::random(NULL, 200).'@'.Text::random(NULL, 50).'.com', FALSE, FALSE]
 		];
 	}
 
