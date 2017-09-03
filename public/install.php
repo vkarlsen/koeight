@@ -1,9 +1,5 @@
 <?php
 
-//we check first short tags if not we can not even load the installer
-if (! ((bool) ini_get('short_open_tag')) )
-    die('<strong><u>KO7 Installation requirement</u></strong>: Before you proceed with your KO7 installation: Keep in mind KO7 uses the short tag "short cut" syntax.<br><br> Thus the <a href="http://php.net/manual/ini.core.php#ini.short-open-tag" target="_blank">short_open_tag</a> directive must be enabled in your php.ini.<br><br><u>Easy Solution</u>:<ol><li>Open php.ini file and look for line short_open_tag = Off</li><li>Replace it with short_open_tag = On</li><li>Restart then your PHP server</li><li>Refresh this page to resume your KO7 installation</li><li>Enjoy KO7 ;)</li></ol>');
-
 if (version_compare(PHP_VERSION, '5.3', '<'))
 {
 	// Clear out the cache to prevent errors. This typically happens on Windows/FastCGI.
