@@ -288,14 +288,6 @@
                     <?php endif ?>
                 </tr>
                 <tr>
-                    <th>mcrypt Enabled</th>
-                    <?php if (extension_loaded('mcrypt')): ?>
-                    <td class="pass">Pass</td>
-                    <?php else: ?>
-                    <td class="fail">Koseven requires <a href="http://php.net/mcrypt">mcrypt</a> for the Encrypt class.</td>
-                    <?php endif ?>
-                </tr>
-                <tr>
                     <th>GD Enabled</th>
                     <?php if (function_exists('gd_info')): ?>
                     <td class="pass">Pass</td>
