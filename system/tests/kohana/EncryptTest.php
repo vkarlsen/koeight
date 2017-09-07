@@ -21,6 +21,8 @@ class Kohana_EncryptTest extends Unittest_TestCase
 	 */
 	public function setUp()
 	{
+		parent::setUp();
+		
 		if ( ! extension_loaded('mcrypt')) {
 			$this->markTestSkipped(
 				'The Mcrypt extension is not available.'
