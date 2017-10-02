@@ -120,7 +120,7 @@ class Kohana_Request implements HTTP_Request {
 				// client is using a proxy server.
 				$client_ips = explode(',', $_SERVER['HTTP_CLIENT_IP']);
 
-				Request::$client_ip = array_shift($client_ips);
+				Request::$client_ip = trim(end($client_ips));
 
 				unset($client_ips);
 			}
