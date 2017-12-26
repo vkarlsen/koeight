@@ -38,7 +38,7 @@ define('EXT', '.php');
  * this bootstrap file somewhere else then you'll need to modify this value to 
  * compensate.
  */
-define('DOCROOT', realpath(dirname(__FILE__).'/../../').DIRECTORY_SEPARATOR);
+define('DOCROOT', realpath(__DIR__ . '/../../') . DIRECTORY_SEPARATOR);
 
 /**
  * Set the PHP error reporting level. If you set this in php.ini, you remove this.
@@ -61,6 +61,8 @@ error_reporting(E_ALL & ~E_DEPRECATED);
  *
  * @link http://kohanaframework.org/guide/using.configuration
  */
+// Require composer libraries
+require DOCROOT.'/vendor/autoload.php';
 
 // Make the application relative to the docroot
 if ( ! is_dir($application) AND is_dir(DOCROOT.$application))
@@ -133,5 +135,13 @@ if ( ! in_array($unittest_path, $modules)) {
 $encrypt_path = MODPATH.'encrypt';
 if ( ! in_array($encrypt_path, $modules)) {
 	$modules['encrypt'] = $encrypt_path;
+	Kohana::modules($modules);
+}
+
+// Enable the minion module
+$minion_path = MODPATH.'minion';
+if ( ! in_array($minion_path, $modules))
+{
+	$modules['minion'] = $minion_path;
 	Kohana::modules($modules);
 }
