@@ -24,7 +24,9 @@ class TaskTest extends Unittest_TestCase
 	{
 		$output = '';
 		$path = DOCROOT . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'index.php --task=help';
+		echo $path.PHP_EOL;
 		exec('php ' . $path, $output);
+		var_dump($output);
 		$this->assertContains('Minion is a cli tool for performing tasks', $output);
 	}
 
