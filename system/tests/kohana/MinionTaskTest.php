@@ -14,7 +14,7 @@
  * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
-class TaskTest extends Unittest_TestCase
+class MinionTaskTest extends Unittest_TestCase
 {
 
 	/**
@@ -22,12 +22,8 @@ class TaskTest extends Unittest_TestCase
 	 */
 	public function test_minion_runnable()
 	{
-		$output = '';
-		$path = DOCROOT . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'index.php --task=help';
-		echo $path.PHP_EOL;
-		exec('php ' . $path, $output);
-		var_dump($output);
-		$this->assertContains('Minion is a cli tool for performing tasks', $output);
+		$minionResponse = Minion_Task::factory(['task' => 'help']);
+		$this->assertInstanceOf('Task_Help', $minionResponse);
 	}
 
 }
