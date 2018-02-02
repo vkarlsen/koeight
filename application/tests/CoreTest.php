@@ -17,7 +17,7 @@
  * @license    https://koseven.ga/LICENSE.md
  * 
  * while(true) do clear; ./vendor/bin/phpunit --bootstrap=modules/unittest/bootstrap.php  application/tests/CoreTest.php; sleep 8; done;
-
+ 
  */
 class CoreTest extends Unittest_TestCase
 {
@@ -31,10 +31,10 @@ class CoreTest extends Unittest_TestCase
         $modules['cache'] = MODPATH . 'cache';
         Kohana::modules($modules);
         
-        kohana::$caching= TRUE;
+        kohana::$caching = TRUE;
         
         // setup kohana file cache config.
-        file_put_contents(APPPATH . 'config/cache.php', "<?php\nreturn array( 'prefix'=>'prefix', 'file'=> array('driver' => 'file', 'cache_dir' => APPPATH.'cache/','default_expire' => 3600));");
+        file_put_contents(APPPATH . 'config/cache.php', "<?php\nreturn array( 'prefix'=>'cache1_', 'file'=> array('driver' => 'file', 'cache_dir' => APPPATH.'cache/','default_expire' => 3600));");
         
         // utilise file cache so kohana_cache class is loaded else its not loaded and file_cache function is used in Kohana_Core.hp
         Cache::instance('file');
@@ -47,10 +47,7 @@ class CoreTest extends Unittest_TestCase
         
         // kohana::deinit();
         
-        //read cache generated suing Koahan_Core::file_cache 
-        $this->assertInternalType('array',Kohana::file_cache('Kohana::find_file()'));
-        
+        // read cache generated suing Koahan_Core::file_cache
+        $this->assertInternalType('array', Kohana::file_cache('Kohana::find_file()'));
     }
-
-
 }
