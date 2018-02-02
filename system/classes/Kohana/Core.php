@@ -291,7 +291,7 @@ class Kohana_Core {
 		if (Kohana::$caching === TRUE)
 		{
 			// Load the file path cache
-			Kohana::$_files = Kohana::cache('Kohana::find_file()');
+		    Kohana::$_files = Kohana::file_cache('Kohana::find_file()');
 		}
 
 		if (isset($settings['charset']))
@@ -889,10 +889,7 @@ class Kohana_Core {
     public static function file_cache($name, $data = NULL, $lifetime = NULL)
     {
         // Cache file is a hash of the name
-        $prefix = 'cache1_';
-        $name = $prefix.sha1($name);
-        $file = sha1($name).'.cache';
-        
+        $file = sha1($name).'.txt';
 
         // Cache directories are split by keys to prevent filesystem overload
         $dir = Kohana::$cache_dir.DIRECTORY_SEPARATOR.$file[0].$file[1].DIRECTORY_SEPARATOR;
@@ -912,18 +909,7 @@ class Kohana_Core {
                     // Return the cache
                     try
                     {
-                        $file = new SplFileInfo($dir.$file);
-                        // open the file to read data
-                        $data = $file->openFile();
-                        $data->fgets();
-                        $cache = '';
-                        
-                        while ($data->eof() === FALSE)
-                        {
-                            $cache .= $data->fgets();
-                        }
-                        
-                        return unserialize($cache);
+                        return unserialize(file_get_contents($dir.$file));
                     }
                     catch (Exception $e)
                     {
@@ -1060,7 +1046,7 @@ class Kohana_Core {
 			if (Kohana::$caching === TRUE AND Kohana::$_files_changed === TRUE)
 			{
 				// Write the file path cache
-				Kohana::cache('Kohana::find_file()', Kohana::$_files);
+			    Kohana::file_cache('Kohana::find_file()', Kohana::$_files);
 			}
 		}
 		catch (Exception $e)

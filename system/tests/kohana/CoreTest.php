@@ -174,6 +174,24 @@ class Kohana_CoreTest extends Unittest_TestCase
 		Kohana::cache($key, $value, $lifetime);
 		$this->assertEquals($value, Kohana::cache($key));
 	}
+	
+	/**
+	 * Test Kohan::$caching
+	 * 
+	 * 
+	 * @test
+	 * 
+	 */
+	public function test_fild_file_work_with_caching ()
+	{
+	    kohana::$caching = TRUE;
+	    //trigger fild_file so Kohana_Core::$_files_changed is set to true;
+	    Debug::vars('s');
+	    //trigger shutdown so kohana write to file cache.
+	    Kohana::shutdown_handler();
+	    $this->assertInternalType('array', Kohana::file_cache('Kohana::find_file()'));
+	    
+	}
 
 	/**
 	 * Provides test data for test_message()
