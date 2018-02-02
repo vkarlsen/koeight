@@ -6,7 +6,7 @@ php:
   # aliased to a recent 5.6.x version
   # - 5.6   PHPUnit 6.0 is supported on PHP 7.0 and PHP 7.1.
   # aliased to a recent 7.0 version
-  - 7.0.13
+  - 7.0
   # aliased to a recent 7.1 version
   - 7.1
   # aliased to a recent 7.2 version
@@ -14,11 +14,12 @@ php:
 
 before_install:
   # Update phpunit
-  - sudo rm -r $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
-  - wget https://phar.phpunit.de/phpunit.phar
-  - sudo mkdir $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
-  - sudo mv phpunit.phar $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
-  - sudo chmod +x $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
+  #- sudo rm -r $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
+  #- wget https://phar.phpunit.de/phpunit-6.phar
+  #- sudo mkdir $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
+  #- sudo mv phpunit.phar $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
+  #- sudo chmod +x $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
+  - phpunit --version
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
@@ -26,7 +27,7 @@ before_script:
 
 script: 
   # - set -e # don't stop on failure
-  - php $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit/phpunit.phar --bootstrap=modules/unittest/bootstrap.php modules/unittest/tests.php
+  - phpunit --bootstrap=modules/unittest/bootstrap.php modules/unittest/tests.php
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
