@@ -15,7 +15,7 @@ php:
 before_install:
   # Update phpunit
   - sudo rm -r $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
-  - wget https://phar.phpunit.de/phpunit.phar
+  - wget https://phar.phpunit.de/phpunit-6.phar
   - sudo mkdir $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
   - sudo mv phpunit.phar $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
   - sudo chmod +x $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
