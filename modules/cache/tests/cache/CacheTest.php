@@ -1,5 +1,4 @@
 <?php
-use PHPUnit\Framework\TestCase;
 /**
  * @package    Kohana/Cache
  * @group      kohana
@@ -9,7 +8,7 @@ use PHPUnit\Framework\TestCase;
  * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
-class Kohana_CacheTest extends TestCase {
+class Kohana_CacheTest extends Unittest_TestCase {
 
 	const BAD_GROUP_DEFINITION  = 1010;
 	const EXPECT_SELF           = 1001;
@@ -60,14 +59,6 @@ class Kohana_CacheTest extends TestCase {
 	 */
 	public function test_instance($group, $expected)
 	{
-		if (in_array($group, [
-			Kohana_CacheTest::BAD_GROUP_DEFINITION,
-			]
-		))
-		{
-			$this->setExpectedException('Cache_Exception');
-		}
-
 		try
 		{
 			$cache = Cache::instance($group);
