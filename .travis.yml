@@ -19,7 +19,7 @@ before_install:
   #- sudo mkdir $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
   #- sudo mv phpunit.phar $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
   #- sudo chmod +x $HOME/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
-  - phpunit --version
+  #- phpunit --version
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
