@@ -889,7 +889,10 @@ class Kohana_Core {
     public static function file_cache($name, $data = NULL, $lifetime = NULL)
     {
         // Cache file is a hash of the name
-        $file = sha1($name).'.txt';
+        $prefix = 'cache1_';
+        $name = $prefix.sha1($name);
+        $file = sha1($name).'.cache';
+        
 
         // Cache directories are split by keys to prevent filesystem overload
         $dir = Kohana::$cache_dir.DIRECTORY_SEPARATOR.$file[0].$file[1].DIRECTORY_SEPARATOR;
@@ -909,7 +912,18 @@ class Kohana_Core {
                     // Return the cache
                     try
                     {
-                        return unserialize(file_get_contents($dir.$file));
+                        $file = new SplFileInfo($dir.$file);
+                        // open the file to read data
+                        $data = $file->openFile();
+                        $data->fgets();
+                        $cache = '';
+                        
+                        while ($data->eof() === FALSE)
+                        {
+                            $cache .= $data->fgets();
+                        }
+                        
+                        return unserialize($cache);
                     }
                     catch (Exception $e)
                     {
