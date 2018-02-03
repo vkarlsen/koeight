@@ -40,13 +40,10 @@ class Kohana_CacheTest extends Unittest_TestCase {
 			];
 		}
 
-
-		return [
+		return $base + [
 			// Test bad group definition
-			$base+[
-				Kohana_CacheTest::BAD_GROUP_DEFINITION,
-				'Failed to load Kohana Cache group: 1010'
-			],
+			Kohana_CacheTest::BAD_GROUP_DEFINITION,
+			'Failed to load Kohana Cache group: 1010'
 		];
 	}
 
@@ -155,15 +152,18 @@ class Kohana_CacheTest extends Unittest_TestCase {
 	 */
 	public function test_config($key, $value, $expected_result, array $expected_config)
 	{
-		$cache = $this->createMock('Cache_File', NULL, [], '', FALSE);
+		$cache = $this->createMock('Cache_File');
+
+		$cache_reflection = new ReflectionClass('Cache_File');
+		$config = $cache_reflection->getMethod('config');
 
 		if ($expected_result === Kohana_CacheTest::EXPECT_SELF)
 		{
 			$expected_result = $cache;
 		}
 
-		$this->assertSame($expected_result, $cache->config($key, $value));
-		$this->assertSame($expected_config, $cache->config());
+		$this->assertSame($expected_result, $config->invoke($cache, $key, $value));
+		$this->assertSame($expected_config, $config->invoke($cache));
 	}
 
 	/**
@@ -176,28 +176,8 @@ class Kohana_CacheTest extends Unittest_TestCase {
 		return [
 			[
 				'foo',
-				'foo'
+				'0beec7b5ea3f0fdbc95d0dd47f3c5bc275da8a33'
 			],
-			[
-				'foo+-!@',
-				'foo+-!@'
-			],
-			[
-				'foo/bar',
-				'foo_bar',
-			],
-			[
-				'foo\\bar',
-				'foo_bar'
-			],
-			[
-				'foo bar',
-				'foo_bar'
-			],
-			[
-				'foo\\bar snafu/stfu',
-				'foo_bar_snafu_stfu'
-			]
 		];
 	}
 
@@ -214,16 +194,9 @@ class Kohana_CacheTest extends Unittest_TestCase {
 	 */
 	public function test_sanitize_id($id, $expected)
 	{
-		$cache = $this->getMock('Cache', [
-			'get',
-			'set',
-			'delete',
-			'delete_all'
-			], [[]],
-			'', FALSE
-		);
+		$cache = $this->createMock('Cache');
 
-		$cache_reflection = new ReflectionClass($cache);
+		$cache_reflection = new ReflectionClass('Cache');
 		$sanitize_id = $cache_reflection->getMethod('_sanitize_id');
 		$sanitize_id->setAccessible(TRUE);
 

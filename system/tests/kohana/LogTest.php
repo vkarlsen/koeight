@@ -83,7 +83,7 @@ class Kohana_LogTest extends Unittest_TestCase
 		$this->assertSame($logger, $logger->attach($writer, Log::NOTICE, Log::CRITICAL));
 
 		$this->assertAttributeSame(
-			[spl_object_hash($writer) => ['object' => $writer, 'levels' => [Log::CRITICAL, Log::ERROR, Log::WARNING, Log::NOTICE]]],
+			[spl_object_hash($writer) => ['object' => $writer, 'levels' => [Log::EMERGENCY, Log::ALERT, Log::CRITICAL, Log::ERROR, Log::WARNING, Log::NOTICE]]],
 			'_writers',
 			$logger
 		);
