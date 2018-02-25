@@ -3,11 +3,14 @@
 # Markdown Extra  -  A text-to-HTML conversion tool for web writers
 #
 # PHP Markdown & Extra
-# Copyright (c) 2004-2017 Michel Fortin  
+# Copyright (c) 2017-2018 Koseven Team
+#
+# PHP Markdown & Extra
+# Copyright (c) 2004-2008 Michel Fortin  
 # <http://www.michelf.com/projects/php-markdown/>
 #
 # Original Markdown
-# Copyright (c) 2004-2017 John Gruber  
+# Copyright (c) 2004-2006 John Gruber  
 # <http://daringfireball.net/projects/markdown/>
 #
 
