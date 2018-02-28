@@ -6,8 +6,14 @@ php:
   - 7.1
   - 7.2
 
+before_install:
+  # use PHPUnit 6
+  - rm ~/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
+  - wget -O ~/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit https://phar.phpunit.de/phpunit-6.phar
+  - chmod +x ~/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
+
 before_script:
-  - sudo chmod -R 755 modules/ application/ system/
+  - chmod -R 755 modules/ application/ system/
 
 script: 
   - phpunit --bootstrap=modules/unittest/bootstrap.php modules/unittest/tests.php
