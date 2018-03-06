@@ -121,17 +121,41 @@ if (($ob_len = ob_get_length()) !== FALSE)
 	}
 }
 
-// Enable the unittest module if it is not already loaded - use the absolute path
-$modules = Kohana::modules();
-$unittest_path = realpath(__DIR__).DIRECTORY_SEPARATOR;
-if ( ! in_array($unittest_path, $modules)) {
-	$modules['unittest'] = $unittest_path;
-	Kohana::modules($modules);
+// Preset cache config if not set
+$cache_config = Kohana::$config->load('cache');
+
+if (($cache_config->get('default') === NULL AND $cache_config->get('file') === NULL) OR
+	($cache_config->get('default') === 'file' AND $cache_config->get('file') === NULL))
+{
+	$cache_config->set(
+		'file',
+		[
+			'driver' => 'file',
+			'cache_dir' => APPPATH.'cache',
+			'default_expire' => 3600,
+			'ignore_on_delete' => [
+				'file_we_want_to_keep.cache',
+				'.gitignore',
+				'.git',
+				'.svn'
+			]
+		]
+	);
 }
 
-// Encryption is supported by a module, add it to the module list
-$encrypt_path = MODPATH.'encrypt';
-if ( ! in_array($encrypt_path, $modules)) {
-	$modules['encrypt'] = $encrypt_path;
-	Kohana::modules($modules);
+// Enable all modules we can find
+$modules_iterator = new DirectoryIterator(MODPATH);
+
+$modules = [];
+
+foreach ($modules_iterator as $module)
+{
+	if ($module->isDir() AND ! $module->isDot())
+	{
+		$modules[$module->getFilename()] = MODPATH.$module->getFilename();
+	}
 }
+
+Kohana::modules($modules);
+
+unset($cache_config, $modules_iterator, $modules, $module);
