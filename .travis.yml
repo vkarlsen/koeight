@@ -12,9 +12,6 @@ before_install:
   - wget -O ~/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit https://phar.phpunit.de/phpunit-6.phar
   - chmod +x ~/.phpenv/versions/$TRAVIS_PHP_VERSION/bin/phpunit
 
-before_script:
-  - chmod -R 755 modules/ application/ system/
-
 script: 
   - phpunit --bootstrap=modules/unittest/bootstrap.php modules/unittest/tests.php
 
