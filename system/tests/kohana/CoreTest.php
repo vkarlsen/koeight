@@ -182,7 +182,7 @@ class Kohana_CoreTest extends Unittest_TestCase
 	 * @test
 	 * 
 	 */
-	public function test_fild_file_work_with_caching ()
+	public function test_find_file_work_with_caching ()
 	{
 	    Kohana::$caching = TRUE;
 	    //trigger fild_file so Kohana_Core::$_files_changed is set to true;
