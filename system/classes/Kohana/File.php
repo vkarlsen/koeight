@@ -139,7 +139,12 @@ class Kohana_File {
 	 */
 	public static function ext_by_mime($type)
 	{
-		return current(File::exts_by_mime($type));
+		$exts = File::exts_by_mime($type);
+		if ($exts === FALSE)
+		{
+			return FALSE;
+		}
+		return current($exts);
 	}
 
 	/**
