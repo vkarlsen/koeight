@@ -97,7 +97,7 @@ class Kohana_File {
 	 * Lookup file extensions by MIME type
 	 *
 	 * @param   string  $type File MIME type
-	 * @return  array   File extensions matching MIME type
+	 * @return  array|false   File extensions matching MIME type or false if none
 	 */
 	public static function exts_by_mime($type)
 	{
