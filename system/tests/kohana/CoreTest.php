@@ -57,7 +57,6 @@ class Kohana_CoreTest extends Unittest_TestCase
 			['foo', 'foo'],
 			["foo\r\nbar", "foo\nbar"],
 			["foo\rbar", "foo\nbar"],
-			["Is your name O\'reilly?", "Is your name O'reilly?"]
 		];
 	}
 
@@ -72,8 +71,6 @@ class Kohana_CoreTest extends Unittest_TestCase
 	 */
 	public function test_sanitize($value, $result)
 	{
-		$this->setEnvironment(['Kohana::$magic_quotes' => TRUE]);
-
 		$this->assertSame($result, Kohana::sanitize($value));
 	}
 
@@ -123,25 +120,6 @@ class Kohana_CoreTest extends Unittest_TestCase
 		$this->assertGreaterThan(3, count($files));
 
 		$this->assertSame([], Kohana::list_files('geshmuck'));
-	}
-
-	/**
-	 * Tests Kohana::globals()
-	 *
-	 * @test
-	 * @covers Kohana::globals
-	 */
-	public function test_globals_removes_user_def_globals()
-	{
-		$GLOBALS['hackers'] = 'foobar';
-		$GLOBALS['name'] = ['','',''];
-		$GLOBALS['_POST'] = [];
-
-		Kohana::globals();
-
-		$this->assertFalse(isset($GLOBALS['hackers']));
-		$this->assertFalse(isset($GLOBALS['name']));
-		$this->assertTrue(isset($GLOBALS['_POST']));
 	}
 
 	/**
