@@ -23,9 +23,9 @@ If you do not want to use the internal error handling, you can disable it (highl
 
 ## Error Reporting
 
-By default, Kohana displays all errors, including strict mode warnings. This is set using [error_reporting](http://php.net/error_reporting):
+By default, Kohana displays all errors and warnings. This is set using [error_reporting](http://php.net/error_reporting):
 
-    error_reporting(E_ALL | E_STRICT);
+    error_reporting(E_ALL);
 
 When you application is live and in production, a more conservative setting is recommended, such as ignoring notices:
 
