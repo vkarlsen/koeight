@@ -76,6 +76,9 @@ If you've stumbled across a bug, please help us out by [reporting the bug](https
 
 This will help us to fix the bug as quickly as possible, and if you'd like to fix it yourself feel free to [fork us on GitHub](https://github.com/koseven) and submit a pull request!
 
+## Reporting security vulnerabilities
+Open an [issue](https://github.com/koseven/koseven/issues/new) on github and describe the problem as detailed as possible. Or do a pull request if you have a patch and describe the issue there.
+
 ## Contributing
 
 Any help is more than welcome! Please see [Contributing](CONTRIBUTING.md)
