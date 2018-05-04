@@ -176,7 +176,8 @@ class Kohana_Encrypt_Engine_Openssl extends Kohana_Encrypt_Engine {
 	protected function valid_payload($payload)
 	{
 		return is_array($payload) AND
-					 isset($payload['iv'], $payload['value'], $payload['mac']);
+				isset($payload['iv'], $payload['value'], $payload['mac']) AND
+				strlen(base64_decode($payload['iv'], TRUE)) === $this->_iv_size;
 	}
 
 	/**
