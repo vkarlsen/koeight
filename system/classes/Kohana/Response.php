@@ -437,6 +437,12 @@ class Kohana_Response implements HTTP_Response {
 			// File data is no longer needed
 			unset($file_data);
 		}
+		else if ( ! empty($filename) && is_resource($filename))
+		{
+			// Handle files passed in as resources
+			$file = $filename;
+			$size = fstat($file)['size'];
+		}
 		else
 		{
 			// Get the complete file path
