@@ -443,11 +443,18 @@ class Kohana_Response implements HTTP_Response {
 			// File data is no longer needed
 			unset($file_data);
 		}
-		else if ( ! empty($filename) && is_resource($filename))
+		else if (is_resource($filename) && get_resource_type($filename) === 'stream')
 		{
 			if (empty($download))
 			{
 				throw new Kohana_Exception('Download name must be provided for streaming files');
+			}
+
+			// Make sure this is a file handle
+			$file_meta = stream_get_meta_data($filename);
+			if ($file_meta['seekable'] === FALSE)
+			{
+				throw new Kohana_Exception('Resource must be a file handle');
 			}
 
 			// Handle file streams passed in as resources
