@@ -382,6 +382,12 @@ class Kohana_Response implements HTTP_Response {
 	 *
 	 *     $request->send_file('media/packages/kohana.zip');
 	 *
+	 * Download a generated file:
+	 *
+	 *     $csv = tmpfile();
+	 *     fputcsv($csv, ['label1', 'label2']);
+	 *     $request->send_file($csv, $filename);
+	 *
 	 * Download generated content as a file:
 	 *
 	 *     $request->response($content);
@@ -389,7 +395,7 @@ class Kohana_Response implements HTTP_Response {
 	 *
 	 * [!!] No further processing can be done after this method is called!
 	 *
-	 * @param   string  $filename   filename with path, or TRUE for the current response
+	 * @param   string|resource|bool $filename filename with path, file stream, or TRUE for the current response
 	 * @param   string  $download   downloaded file name
 	 * @param   array   $options    additional options
 	 * @return  void
@@ -436,6 +442,24 @@ class Kohana_Response implements HTTP_Response {
 
 			// File data is no longer needed
 			unset($file_data);
+		}
+		else if (is_resource($filename) && get_resource_type($filename) === 'stream')
+		{
+			if (empty($download))
+			{
+				throw new Kohana_Exception('Download name must be provided for streaming files');
+			}
+
+			// Make sure this is a file handle
+			$file_meta = stream_get_meta_data($filename);
+			if ($file_meta['seekable'] === FALSE)
+			{
+				throw new Kohana_Exception('Resource must be a file handle');
+			}
+
+			// Handle file streams passed in as resources
+			$file = $filename;
+			$size = fstat($file)['size'];
 		}
 		else
 		{
