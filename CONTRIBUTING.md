@@ -54,7 +54,7 @@ Notes:
 ## Keep sync with original repo
 First time, add a remote with the upstream
 ```
-git remote add upstream git@github.com:yclas/yclas.git
+git remote add upstream https://github.com/koseven/koseven.git
 ```
 
 Everytime you want to sync just
