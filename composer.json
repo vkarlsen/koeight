@@ -1,7 +1,7 @@
 {
   "name": "koseven/koseven",
   "description": "Koseven Framework - PHP-7 compatible replacement for Kohana",
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "keywords": [
     "kohana",
     "kohana-php7",
