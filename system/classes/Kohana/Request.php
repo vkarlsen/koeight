@@ -99,7 +99,10 @@ class Kohana_Request implements HTTP_Request {
 				$requested_with = $_SERVER['HTTP_X_REQUESTED_WITH'];
 			}
 
-			if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+			if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])
+				AND isset($_SERVER['REMOTE_ADDR'])
+				AND in_array($_SERVER['REMOTE_ADDR'], Request::$trusted_proxies)) {
+
 				// If using CloudFlare, client IP address is sent with this header
 				Request::$client_ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
 			}
