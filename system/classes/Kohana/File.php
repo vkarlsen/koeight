@@ -135,15 +135,17 @@ class Kohana_File {
 	 * Lookup a single file extension by MIME type.
 	 *
 	 * @param   string  $type  MIME type to lookup
-	 * @return  mixed          First file extension matching or false
+	 * @return  string|false   First file extension matching or false
 	 */
 	public static function ext_by_mime($type)
 	{
 		$exts = File::exts_by_mime($type);
+
 		if ($exts === FALSE)
 		{
 			return FALSE;
 		}
+
 		return current($exts);
 	}
 
