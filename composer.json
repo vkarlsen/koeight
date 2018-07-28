@@ -41,6 +41,6 @@
     "kohana/core": "3.3.*"
   },
   "autoload": {
-    "classmap": ["/"]
+    "classmap": ["modules/", "system/"]
   }
 }
