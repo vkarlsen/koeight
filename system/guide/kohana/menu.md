@@ -46,4 +46,5 @@
    - [Clean URLs](tutorials/clean-urls)
    - [Sharing Kohana](tutorials/sharing-kohana)
    - [Kohana as a Library](tutorials/library-kohana)
+   - [Koseven as a Composer package](tutorials/composer-koseven)
    - [Working with Git](tutorials/git)
