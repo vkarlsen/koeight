@@ -229,10 +229,17 @@ class Kohana_URL {
 	 */
 	public static function title($title, $separator = '-', $ascii_only = FALSE)
 	{
-		if ($ascii_only === TRUE)
+		if ($ascii_only)
 		{
 			// Transliterate non-ASCII characters
-			$title = UTF8::transliterate_to_ascii($title);
+			if (extension_loaded('intl'))
+			{
+				$title = transliterator_transliterate('Any-Latin;Latin-ASCII', $title);
+			} 
+			else
+			{
+				$title = UTF8::transliterate_to_ascii($title);
+			}
 
 			// Remove all characters that are not the separator, a-z, 0-9, or whitespace
 			$title = preg_replace('![^'.preg_quote($separator).'a-z0-9\s]+!', '', strtolower($title));
