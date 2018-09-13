@@ -56,6 +56,7 @@ class Kohana_Security {
 					// Random bytes function is available but no sources of randomness are available
 					// so rather than allowing the exception to be thrown - fall back to other methods.
 					// @see http://php.net/manual/en/function.random-bytes.php
+					$token = null;
 				}
 			}
 
