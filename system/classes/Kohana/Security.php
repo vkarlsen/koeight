@@ -51,7 +51,8 @@ class Kohana_Security {
 
 			try
 			{
-				if (function_exists('random_bytes')) {
+				if (function_exists('random_bytes'))
+				{
 					$token = bin2hex(random_bytes(24));
 				}
 			}
@@ -63,7 +64,7 @@ class Kohana_Security {
 			}
 			finally
 			{
-				if (! $token)
+				if ( ! $token)
 				{
 					if (function_exists('openssl_random_pseudo_bytes'))
 					{
@@ -103,8 +104,6 @@ class Kohana_Security {
 		return Security::slow_equals(Security::token(), $token);
 	}
 
-
-
 	/**
 	 * Compare two hashes in a time-invariant manner.
 	 * Prevents cryptographic side-channel attacks (timing attacks, specifically)
@@ -122,7 +121,6 @@ class Kohana_Security {
 		}
 		return $diff === 0;
 	}
-
 
 	/**
 	 * Deprecated for security reasons.
