@@ -61,16 +61,17 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	protected $_cache_dir;
 
 	/**
-	 * @var  boolean  does the cache directory is avaliable
+	 * @var  boolean  does the cache directory exists and writeable
 	 */
-	protected $_inited = FALSE;
+	protected $_cache_dir_usable = FALSE;
 
 	/**
-	 * Creates the cache directory.
+	 * Check that the cache directory exists and writeable. Attempts to create
+	 * it if not exists.
 	 *
 	 * @throws  Cache_Exception
 	 */
-	protected function _init()
+	protected function _check_cache_dir()
 	{
 		try
 		{
@@ -100,7 +101,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 			throw new Cache_Exception('Unable to write to the cache directory :resource', [':resource' => $this->_cache_dir->getRealPath()]);
 		}
 
-		$this->_inited = TRUE;
+		$this->_cache_dir_usable = TRUE;
 	}
 
 	/**
@@ -119,8 +120,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function get($id, $default = NULL)
 	{
-		// Make sure cache is inited
-		$this->_inited or $this->_init();
+		$this->_cache_dir_usable or $this->_check_cache_dir();
 
 		$filename = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
@@ -196,8 +196,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function set($id, $data, $lifetime = NULL)
 	{
-		// Make sure cache is inited
-		$this->_inited or $this->_init();
+		$this->_cache_dir_usable or $this->_check_cache_dir();
 
 		$filename = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
@@ -253,8 +252,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function delete($id)
 	{
-		// Make sure cache is inited
-		$this->_inited or $this->_init();
+		$this->_cache_dir_usable or $this->_check_cache_dir();
 
 		$filename = Cache_File::filename($this->_sanitize_id($id));
 		$directory = $this->_resolve_directory($filename);
@@ -276,8 +274,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function delete_all()
 	{
-		// Make sure cache is inited
-		$this->_inited or $this->_init();
+		$this->_cache_dir_usable or $this->_check_cache_dir();
 
 		return $this->_delete_file($this->_cache_dir, TRUE);
 	}
@@ -290,8 +287,7 @@ class Kohana_Cache_File extends Cache implements Cache_GarbageCollect {
 	 */
 	public function garbage_collect()
 	{
-		// Make sure cache is inited
-		$this->_inited or $this->_init();
+		$this->_cache_dir_usable or $this->_check_cache_dir();
 
 		$this->_delete_file($this->_cache_dir, TRUE, FALSE, TRUE);
 		return;
