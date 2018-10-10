@@ -34,14 +34,16 @@ If you were using 3.3.x version you may need to make some small changes. Please 
 ## What changes have you made?
 
 So far is mostly as the last stable version of Kohana 3.3.6 released on Jul 25, 2016. But compatible with PHP 7.
-Our focus is to keep the framework compatible with new releases of PHP, fix bugs and try to improve the speed.
-New features can be added using modules.
+
+## What are the future plans for the project?
+
+Our focus is to keep the framework compatible with new releases of PHP, fix bugs and try to improve the speed. New features can be added using modules.
+
+There is a dedicated [roadmap](https://koseven.ga/roadmap.html) page for the supported versions and plans.
 
 ## Are modules of the original Kohana compatible?
 
-Yes they are, just be sure that they are compatible with Kohana 3.3.X.
-An overview of Koseven’s team own modules can be found on [this](https://koseven.ga/modules.html) page.
-There’s also a list online with a nice overview of existing modules maintained (or abandoned) by others. You can consult this list at [kohana-modules.com](https://koseven.ga/modules.html)
+Yes they are, just be sure that they are compatible with Kohana 3.3.X. An overview of Koseven's team own modules can be found on [modules](https://koseven.ga/modules.html) page. There's also a list online with a nice overview of existing kohana modules maintained (or abandoned) by others. You can consult this list at [kohana-modules.com](https://kohana-modules.com)
 
 ### Why all modules in 1 repo?
 
