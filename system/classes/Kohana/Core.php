@@ -16,7 +16,7 @@
 class Kohana_Core {
 
 	// Release version and codename
-	const VERSION  = '3.3.7';
+	const VERSION  = '3.3.8';
 	const CODENAME = 'lazarus';
 
 	// Common environment type constants for consistency and convenience
