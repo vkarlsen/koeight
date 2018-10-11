@@ -1,10 +1,8 @@
 # Developing locally
-Clone the repo and develop on the Devel branch. Each release will have its own Tag.
-
-I know its simple but for now will work ;)
+Clone the repo and develop on the "develop" branch for new features and version branches (eg. v3.3) for bug fixes.
 
 # Contributing to the project
-All features and bugfixes must be fully tested and reference an issue in  [GitHub](https://github.com/koseven/koseven/issues), **there are absolutely no exceptions**.
+All features and bugfixes must be fully tested and must have a reference to an issue in [GitHub](https://github.com/koseven/koseven/issues), **there are absolutely no exceptions**.
 
 It's highly recommended that you write/run unit tests during development as it can help you pick up on issues early on.  See the Unit Testing section below.
 
