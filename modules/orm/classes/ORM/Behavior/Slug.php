@@ -178,7 +178,7 @@ class ORM_Behavior_Slug extends ORM_Behavior {
       return $string;
 
     if ($this->seems_utf8($string)) {
-      $chars = array(
+      $chars = [
       // Decompositions for Latin-1 Supplement
       chr(195).chr(128) => 'A', chr(195).chr(129) => 'A',
       chr(195).chr(130) => 'A', chr(195).chr(131) => 'A',
@@ -282,7 +282,7 @@ class ORM_Behavior_Slug extends ORM_Behavior {
       // Euro Sign
       chr(226).chr(130).chr(172) => 'E',
       // GBP (Pound) Sign
-      chr(194).chr(163) => '');
+      chr(194).chr(163) => ''];
 
       $string = strtr($string, $chars);
     } else {
@@ -301,8 +301,8 @@ class ORM_Behavior_Slug extends ORM_Behavior {
       $chars['out'] = "EfSZszYcYuAAAAAACEEEEIIIINOOOOOOUUUUYaaaaaaceeeeiiiinoooooouuuuyy";
 
       $string = strtr($string, $chars['in'], $chars['out']);
-      $double_chars['in'] = array(chr(140), chr(156), chr(198), chr(208), chr(222), chr(223), chr(230), chr(240), chr(254));
-      $double_chars['out'] = array('OE', 'oe', 'AE', 'DH', 'TH', 'ss', 'ae', 'dh', 'th');
+      $double_chars['in'] = [chr(140), chr(156), chr(198), chr(208), chr(222), chr(223), chr(230), chr(240), chr(254)];
+      $double_chars['out'] = ['OE', 'oe', 'AE', 'DH', 'TH', 'ss', 'ae', 'dh', 'th'];
       $string = str_replace($double_chars['in'], $double_chars['out'], $string);
     }
 

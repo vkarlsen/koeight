@@ -1,12 +1,14 @@
-# Koseven PHP Framework
+[![Koseven Logo](https://i.imgur.com/2CeT8JL.png)](https://koseven.ga/)
+
 [![Latest Stable Version](https://poser.pugx.org/koseven/koseven/v/stable)](https://packagist.org/packages/koseven/koseven)
 [![Github Issues](http://githubbadges.herokuapp.com/koseven/koseven/issues.svg)](https://github.com/koseven/koseven/issues)
 [![Pending Pull-Requests](http://githubbadges.herokuapp.com/koseven/koseven/pulls.svg)](https://github.com/koseven/koseven/pulls)
 [![License](https://poser.pugx.org/koseven/koseven/license.svg)](https://packagist.org/packages/koseven/koseven)
 [![Telegram](https://img.shields.io/badge/Telegram-joinChat-blue.svg)](https://telegram.me/koseven)
 [![Build Status](https://travis-ci.org/koseven/koseven.svg?branch=devel)](https://travis-ci.org/koseven/koseven)
+[![Coverage Status](https://coveralls.io/repos/github/koseven/koseven/badge.svg?branch=devel)](https://coveralls.io/github/koseven/koseven?branch=devel)
 
-## [Download 3.3.7](https://github.com/koseven/koseven/archive/3.3.7.zip)
+## [Download 3.3.8](https://github.com/koseven/koseven/releases/tag/3.3.8)
 
 ### [Join the Telegram group](https://telegram.me/koseven)
 
@@ -27,21 +29,21 @@ And so the Koseven repository was born and will keep this repository updated for
 
 ## Will work as dropin of Kohana?
 
-If you were using 3.3.x version normally yes. Normally? There are 2 breaking changes that may affect you, be aware. We have removed MySQL support (in favor for MySQLi) and exception.php is now compatible with PHP7.
-
-We have also added the pagination module.
+If you were using 3.3.x version you may need to make some small changes. Please refer to [upgrading from kohana](https://docs.koseven.ga/guide/kohana/upgrading-from-kohana) section of the documentation.
 
 ## What changes have you made?
 
-So far is exactly as last stable version of KO 3.3.6 released on Jul 25, 2016. But compatible with PHP 7 / PHP 7.1.
-Our focus is to keep the framework compatible with new releases of PHP, fix bugs and try to improve the speed.
-New features can be added using modules.
+So far is mostly as the last stable version of Kohana 3.3.6 released on Jul 25, 2016. But compatible with PHP 7.
+
+## What are the future plans for the project?
+
+Our focus is to keep the framework compatible with new releases of PHP, fix bugs and try to improve the speed. New features can be added using modules.
+
+There is a dedicated [versions and roadmap](https://koseven.ga/roadmap.html) page for the supported versions and plans.
 
 ## Are modules of the original Kohana compatible?
 
-Yes they are, just be sure that they are compatible with KO 3.3.X.
-An overview of Koseven’s team own modules can be found on [this](https://koseven.ga/modules.html) page.
-There’s also a list online with a nice overview of existing modules maintained (or abandoned) by others. You can consult this list at [kohana-modules.com](https://koseven.ga/modules.html)
+Yes they are, just be sure that they are compatible with Kohana 3.3.X. An overview of Koseven's team own modules can be found on [modules](https://koseven.ga/modules.html) page. There's also a list online with a nice overview of existing kohana modules maintained (or abandoned) by others. You can consult this list at [kohana-modules.com](https://kohana-modules.com)
 
 ### Why all modules in 1 repo?
 
@@ -53,7 +55,7 @@ Feel free to [open an issue on github](https://github.com/koseven/koseven/issues
 
 ## Documentation
 
-We are working to improve the original Kohana documentation but in the meantime fill free to use the one provided by KO.
+We are working to improve the original Kohana documentation but in the meantime feel free to use the one provided by Kohana.
 
 Koseven documentation can be found at [docs.koseven.ga](https://docs.koseven.ga) which also contains an API browser.
 
@@ -67,6 +69,9 @@ If you've stumbled across a bug, please help us out by [reporting the bug](https
 * Actual result
 
 This will help us to fix the bug as quickly as possible, and if you'd like to fix it yourself feel free to [fork us on GitHub](https://github.com/koseven) and submit a pull request!
+
+## Reporting security vulnerabilities
+Open an [issue](https://github.com/koseven/koseven/issues/new) on github and describe the problem as detailed as possible. Or do a pull request if you have a patch and describe the issue there.
 
 ## Contributing
 
