@@ -16,8 +16,8 @@
 class Kohana_Core {
 
 	// Release version and codename
-	const VERSION  = '3.3.8';
-	const CODENAME = 'cubelles';
+	const VERSION  = '3.3.9';
+	const CODENAME = 'karlsruhe';
 
 	// Common environment type constants for consistency and convenience
 	const PRODUCTION  = 10;
