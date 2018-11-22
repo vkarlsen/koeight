@@ -8,7 +8,7 @@
 [![Build Status](https://travis-ci.org/koseven/koseven.svg?branch=devel)](https://travis-ci.org/koseven/koseven)
 [![Coverage Status](https://coveralls.io/repos/github/koseven/koseven/badge.svg?branch=devel)](https://coveralls.io/github/koseven/koseven?branch=devel)
 
-## [Download 3.3.8](https://github.com/koseven/koseven/releases/tag/3.3.8)
+## [Download 3.3.9](https://github.com/koseven/koseven/releases/tag/3.3.9)
 
 ### [Join the Telegram group](https://telegram.me/koseven)
 
