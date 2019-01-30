@@ -13,8 +13,7 @@
  *    is used.
  *
  *
- * @package    Kohana
- * @category   Security
+ * @package    Kohana/Encrypt
  * @author     Kohana Team
  * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
