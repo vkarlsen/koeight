@@ -232,6 +232,11 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 
 			if ($direction)
 			{
+				// Make sure direction is either ASC or DESC to prevent injections
+				if ( ! in_array($direction, ['ASC', 'DESC'])) {
+					$direction = 'ASC';
+				}
+
 				// Make the direction uppercase
 				$direction = ' '.strtoupper($direction);
 			}
