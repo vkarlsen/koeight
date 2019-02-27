@@ -234,13 +234,13 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 
 			if ($direction)
 			{
-				// Make sure direction is either ASC or DESC to prevent injections
-				if ( ! in_array($direction, ['ASC', 'DESC'])) {
-					throw new Database_Exception('Invalid sorting direction: ' . $direction);
-				}
-
 				// Make the direction uppercase
 				$direction = ' '.strtoupper($direction);
+
+				// Make sure direction is either ASC or DESC to prevent injections
+				if ( ! in_array($direction, [' ASC', ' DESC'])) {
+					throw new Database_Exception('Invalid sorting direction: ' . $direction);
+				}
 			}
 
 			$sort[] = $column.$direction;
