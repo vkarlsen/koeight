@@ -208,9 +208,11 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 	/**
 	 * Compiles an array of ORDER BY statements into an SQL partial.
 	 *
-	 * @param   object  $db       Database instance
-	 * @param   array   $columns  sorting columns
-	 * @return  string
+	 * @param  Database  $db       Database instance
+	 * @param  array     $columns  sorting columns
+	 *
+	 * @return string
+	 * @throws Database_Exception
 	 */
 	protected function _compile_order_by(Database $db, array $columns)
 	{
@@ -234,7 +236,7 @@ abstract class Kohana_Database_Query_Builder extends Database_Query {
 			{
 				// Make sure direction is either ASC or DESC to prevent injections
 				if ( ! in_array($direction, ['ASC', 'DESC'])) {
-					$direction = 'ASC';
+					throw new Database_Exception('Invalid sorting direction: ' . $direction);
 				}
 
 				// Make the direction uppercase
