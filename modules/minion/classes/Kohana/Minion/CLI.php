@@ -312,4 +312,26 @@ class Kohana_Minion_CLI {
 		return $string;
 	}
 
+	/**
+	 * Sets the domain name for minion tasks
+   * Minion tasks have no $_SERVER variables; to use the base url functions
+   * the domain name can be set in the site config file, or as argument.
+   *
+	 * @param string $domain_name the url of the server: example https://www.example.com
+	 */
+  private static function domain_name($domain_name = '')
+  {
+    if (Request::$initial === NULL)
+    {
+      Kohana::$base_url = empty($domain_name) ? get(Kohana::$config->load('site'), 'minion_domain_name', '') : $domain_name;
+
+      // Set HTTPS for https based urls
+      if (preg_match_all('#(https)://#i', Kohana::$base_url, $result) === 1)
+      {
+        $_SERVER['HTTPS'] = TRUE;
+      }
+
+      Request::$initial = Request::factory();
+    }
+  }
 }
