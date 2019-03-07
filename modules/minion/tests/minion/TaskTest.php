@@ -124,7 +124,7 @@ class Minion_TaskTest extends Kohana_Unittest_TestCase
 	 * Tests that a task can be converted to a class name
 	 *
 	 * @test
-	 * @covers Minion_Task::domain_name
+	 * @covers Minion_Task::set_domain_name
 	 * @dataProvider provider_set_domain_name
 	 * @param string Expected domain url
 	 * @param string Input domain name
