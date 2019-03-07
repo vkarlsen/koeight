@@ -369,7 +369,7 @@ abstract class Kohana_Minion_Task {
 	 *
 	 * @param string $domain_name the url of the server: example https://www.example.com
 	 */
-	public static function domain_name($domain_name = '')
+	public static function set_domain_name($domain_name = '')
 	{
 		if (Request::$initial === NULL)
 		{

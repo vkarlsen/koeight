@@ -14,6 +14,8 @@
 
 class Minion_TaskTest extends Kohana_Unittest_TestCase
 {
+	protected static $initial_request;
+
 	/**
 	 * Sets up the environment
 	 */
@@ -32,7 +34,21 @@ class Minion_TaskTest extends Kohana_Unittest_TestCase
 			'http://www.example2.com'
 		);
 		
+		// Keep the old request object
+		self::$initial_request = Request::$initial;
 		Request::$initial = NULL;
+	}
+
+	/**
+	 * Restores the environment
+	 */
+	// @codingStandardsIgnoreStart
+	public function tearDown()
+	// @codingStandardsIgnoreEnd
+	{
+		Request::$initial = self::$initial_request;
+
+		parent::tearDown();
 	}
 
 	/**
@@ -90,11 +106,11 @@ class Minion_TaskTest extends Kohana_Unittest_TestCase
 	}
 	
 	/**
-	 * Provides test data for test_domain_name()
+	 * Provides test data for test_set_domain_name()
 	 *
 	 * @return array
 	 */
-	public function provider_domain_name()
+	public function provider_set_domain_name()
 	{
 		return [
 			['https://www.example.com/welcome', 'https://www.example.com', 'welcome'],
@@ -109,13 +125,13 @@ class Minion_TaskTest extends Kohana_Unittest_TestCase
 	 *
 	 * @test
 	 * @covers Minion_Task::domain_name
-	 * @dataProvider provider_domain_name
+	 * @dataProvider provider_set_domain_name
 	 * @param string Expected domain url
 	 * @param string Input domain name
 	 */
-	public function test_domain_name($expected, $name, $uri)
+	public function test_set_domain_name($expected, $name, $uri)
 	{
-		Minion_Task::domain_name($name);
+		Minion_Task::set_domain_name($name);
 		
 		$this->assertSame(
 			$expected,
