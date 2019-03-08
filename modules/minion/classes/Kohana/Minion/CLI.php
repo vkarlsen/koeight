@@ -10,8 +10,7 @@
 class Kohana_Minion_CLI {
 
 	public static $wait_msg = 'Press any key to continue...';
-	public static $invalid_option_msg = 'This is not a valid option. Please try again.';
-	
+
 	protected static $foreground_colors = [
 		'black'        => '0;30',
 		'dark_gray'    => '1;30',
@@ -116,11 +115,14 @@ class Kohana_Minion_CLI {
 	 *
 	 * Usage:
 	 *
+	 * // Waits for any key press
+	 * Minion_CLI::read();
+	 *
 	 * // Takes any input
 	 * $color = Minion_CLI::read('What is your favorite color?');
 	 *
 	 * // Will only accept the options in the array
-	 * $ready = Minion_CLI::read('Are you ready?', ['y','n']);
+	 * $ready = Minion_CLI::read('Are you ready?', array('y','n'));
 	 *
 	 * @param  string  $text    text to show user before waiting for input
 	 * @param  array   $options array of options the user is shown
@@ -129,16 +131,13 @@ class Kohana_Minion_CLI {
 	public static function read($text = '', array $options = NULL)
 	{
 		// If a question has been asked with the read
+		$options_output = '';
 		if ( ! empty($options))
 		{
-			$text .= ' [ '.implode(', ', $options).' ]';
-		}
-		if ($text != '')
-		{
-			$text .= ': ';
+			$options_output = ' [ '.implode(', ', $options).' ]';
 		}
 
-		fwrite(STDOUT, $text);
+		fwrite(STDOUT, $text.$options_output.': ');
 
 		// Read the input from keyboard.
 		$input = trim(fgets(STDIN));
@@ -146,7 +145,7 @@ class Kohana_Minion_CLI {
 		// If options are provided and the choice is not in the array, tell them to try again
 		if ( ! empty($options) && ! in_array($input, $options))
 		{
-			Minion_CLI::write(Minion_CLI::$invalid_option_msg);
+			Minion_CLI::write('This is not a valid option. Please try again.');
 
 			$input = Minion_CLI::read($text, $options);
 		}
@@ -234,15 +233,7 @@ class Kohana_Minion_CLI {
 	{
 		// Append a newline if $end_line is TRUE
 		$text = $end_line ? $text.PHP_EOL : $text;
-		
-		if (Kohana::$is_windows)
-		{
-			fwrite(STDOUT, "\r".$text);
-		}
-		else
-		{
-			fwrite(STDOUT, "\r\033[K".$text);
-		}
+		fwrite(STDOUT, "\r\033[K".$text);
 	}
 
 	/**
@@ -256,7 +247,7 @@ class Kohana_Minion_CLI {
 	 * @param int $seconds number of seconds
 	 * @param bool $countdown show a countdown or not
 	 */
-	public static function wait($seconds = 0, $countdown = FALSE)
+	public static function wait($seconds = 0, $countdown = false)
 	{
 		if ($countdown === TRUE)
 		{
@@ -320,4 +311,5 @@ class Kohana_Minion_CLI {
 
 		return $string;
 	}
+
 }
