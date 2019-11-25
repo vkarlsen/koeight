@@ -69,4 +69,9 @@ Any help is more than welcome! Please see [Contributing](CONTRIBUTING.md) for de
 
 Special Thanks to all our Contibuters and our Comminuty!
 
-Also Special Thanks to [Discourse Team](https://discourse.org/) for offering us a Free Discourse Hosting!
+## Sponsors
+Many thanks to our Sponsors:
+
+[Discourse Team](https://discourse.org/) for offering us a free Discourse Hosting of their great software!
+
+[JetBrains](https://www.jetbrains.com/) for offering us their awesome IDE(s)!
