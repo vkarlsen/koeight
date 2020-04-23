@@ -67,7 +67,7 @@ Any help is more than welcome! Please see [Contributing](CONTRIBUTING.md) for de
 
 ## Special Thanks
 
-Special Thanks to all our Contibuters and our Comminuty!
+Special Thanks to all our Contibuters and our Community!
 
 ## Sponsors
 Many thanks to our Sponsors:
