@@ -13,7 +13,7 @@ script:
   - vendor/bin/phpunit
 
 after_success:
-  - travis_retry vendor/bin/php-coveralls -v
+  - codecov
 
 notifications:
   email: false
