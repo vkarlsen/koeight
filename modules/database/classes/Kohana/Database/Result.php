@@ -91,7 +91,7 @@ abstract class Kohana_Database_Result implements Countable, Iterator, SeekableIt
 	 *     // Associative array of rows, "id" => "name"
 	 *     $rows = $result->as_array('id', 'name');
 	 *
-	 * @param   string  $key    column for associative keys
+	 * @param   string|null  $key    column for associative keys
 	 * @param   string  $value  column for values
 	 * @return  array
 	 */
