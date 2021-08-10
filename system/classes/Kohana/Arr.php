@@ -88,7 +88,7 @@ class Kohana_Arr {
 	 */
 	public static function path($array, $path, $default = NULL, $delimiter = NULL)
 	{
-		if ( ! Arr::is_array($array))
+		if ( ! is_array($array))
 		{
 			// This is not an array!
 			return $default;
