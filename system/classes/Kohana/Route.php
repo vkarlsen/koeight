@@ -510,8 +510,11 @@ class Kohana_Route {
 	{
 		if ($params)
 		{
+			foreach($params as $key => $value)
+                		$params[$key] = rawurlencode($value ?? '');
+
 			// @issue #4079 rawurlencode parameters
-			$params = array_map('rawurlencode', $params);
+			//$params = array_map('rawurlencode', $params);
 			// decode slashes back, see Apache docs about AllowEncodedSlashes and AcceptPathInfo
 			$params = str_replace(['%2F', '%5C'], ['/', '\\'], $params);
 		}
