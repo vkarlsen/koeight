@@ -1193,7 +1193,7 @@ class Kohana_Request implements HTTP_Request {
 		if ($content === NULL)
 		{
 			// Act as a getter
-			return $this->_body;
+			return $this->_body ?? '';
 		}
 
 		// Act as a setter
