@@ -9,6 +9,7 @@
  * @copyright  (c) Kohana Team
  * @license    https://koseven.ga/LICENSE.md
  */
++#[AllowDynamicProperties]
 class Kohana_Request implements HTTP_Request {
 
 	/**
