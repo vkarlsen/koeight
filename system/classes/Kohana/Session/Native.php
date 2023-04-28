@@ -82,6 +82,9 @@ class Kohana_Session_Native extends Session {
 	protected function _regenerate()
 	{
 		// Regenerate the session id
+		if(session_id() !== true) {
+			$this->_read();
+		}
 		session_regenerate_id();
 
 		return session_id();
